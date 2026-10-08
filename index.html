@@ -33,7 +33,10 @@ body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);
 a{color:inherit}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 
-header{display:grid;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:28px}
+header{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,340px);gap:40px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:28px}
+.hero-text{display:grid;gap:18px;min-width:0}
+.portrait{margin:0;border:1px solid var(--line);background:var(--panel);aspect-ratio:4/5;max-width:100%;overflow:hidden}
+.portrait img{display:block;width:100%;height:100%;object-fit:cover}
 .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(56px,11vw,128px);
   line-height:.86;letter-spacing:.005em;margin:0;text-wrap:balance}
@@ -87,6 +90,8 @@ footer{border-top:2px solid var(--ink);padding-top:18px;font-family:var(--mono);
   .feature{grid-template-columns:1fr;gap:22px}
   .feature:nth-of-type(even) .shot{order:0}
   .grid{grid-template-columns:1fr}
+  header{grid-template-columns:1fr;gap:24px}
+  .portrait{max-width:300px;order:-1}
   body{padding-inline:16px}
 }
 </style>
@@ -95,11 +100,14 @@ footer{border-top:2px solid var(--ink);padding-top:18px;font-family:var(--mono);
 
 <div class="wrap">
   <header>
+    <div class="hero-text">
     <div class="kicker">Hitting tools, reports and research</div>
     <h1>Quentin<br>Evers</h1>
     <p class="intro">Software I have built for hitting coaches and hitters: game-day tracking, teaching tools that turn Statcast bat tracking into something a coach can use, development reports, and research on how swing plane meets pitch plane.</p>
     <div class="count"><span><b>6</b> projects</span><span><b>4</b> live on the web</span><span><b>2025</b> Statcast season</span></div>
     <div class="social"><a href="https://www.linkedin.com/in/quentin-evers-943628442/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/QuentinEvers" target="_blank" rel="noopener">X / Twitter</a><a href="https://github.com/qevers23" target="_blank" rel="noopener">GitHub</a></div>
+    </div>
+    <figure class="portrait"><img src="portrait.jpg" alt="Quentin Evers on the field in a navy team jacket and batting helmet" width="720" height="900"></figure>
   </header>
 
   <section>
