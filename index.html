@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Quentin Evers: hitting tools, player development reports and swing-plane research.">
+<title>Quentin Evers Projects</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single column, like a lineup card. Three featured tools get image + notes rows; four smaller ones sit in a 2-up grid below. */
+:root{
+  --ground:#F1F2EE; --panel:#FFFFFF; --ink:#14212C; --muted:#5A6670;
+  --line:#D3D8D3; --accent:#A9481F; --chip:#E4E7E1;
+  --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+  --body:"Public Sans",-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E141A; --panel:#151D25; --ink:#E7EBEC; --muted:#97A3AB;
+    --line:#26323C; --accent:#E2774B; --chip:#1D2731; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E141A; --panel:#151D25; --ink:#E7EBEC; --muted:#97A3AB;
+  --line:#26323C; --accent:#E2774B; --chip:#1D2731; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;
+  padding-inline:20px;padding-block:48px 72px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:72px}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+header{display:grid;gap:18px;border-bottom:2px solid var(--ink);padding-bottom:28px}
+.kicker{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(56px,11vw,128px);
+  line-height:.86;letter-spacing:.005em;margin:0;text-wrap:balance}
+.intro{max-width:60ch;margin:0;font-size:18px;color:var(--muted)}
+.count{display:flex;gap:28px;flex-wrap:wrap;font-family:var(--mono);font-size:13px;color:var(--muted)}
+.count b{color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
+
+h2.sec{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 28px;display:flex;align-items:center;gap:14px}
+h2.sec::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.feature{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:start;
+  padding-block:36px;border-top:1px solid var(--line)}
+.feature:first-of-type{border-top:0;padding-top:0}
+.feature:nth-of-type(even) .shot{order:2}
+.shot{margin:0;border:1px solid var(--line);background:var(--panel);overflow:hidden;border-radius:2px}
+.shot img{display:block;width:100%;height:auto}
+.shot.tall{max-height:520px}
+.shot figcaption{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:9px 12px;border-top:1px solid var(--line)}
+.body{display:flex;flex-direction:column;gap:16px;min-width:0}
+.tag{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+h3{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:clamp(34px,4.6vw,48px);
+  line-height:.95;margin:0;letter-spacing:.01em;text-wrap:balance}
+.body p{margin:0;max-width:56ch}
+ul.points{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+ul.points li{padding-left:18px;position:relative;font-size:15px}
+ul.points li::before{content:"";position:absolute;left:0;top:.68em;width:8px;height:2px;background:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-family:var(--mono);font-size:12px;background:var(--chip);padding:3px 8px;border-radius:2px}
+.links{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-size:14px;font-weight:600}
+.links a{text-decoration:none;border-bottom:2px solid var(--accent);padding-bottom:1px}
+.links a:hover{color:var(--accent)}
+.status{font-family:var(--mono);font-size:12px;font-weight:400;color:var(--muted)}
+
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);padding:26px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card h3{font-size:32px}
+.card p{margin:0;font-size:15px}
+.card .links{margin-top:auto;padding-top:6px}
+.glyph{height:64px;color:var(--ink)}
+.glyph svg{height:100%;width:auto;display:block}
+
+footer{border-top:2px solid var(--ink);padding-top:18px;font-family:var(--mono);font-size:12px;color:var(--muted);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media (max-width:760px){
+  .feature{grid-template-columns:1fr;gap:22px}
+  .feature:nth-of-type(even) .shot{order:0}
+  .grid{grid-template-columns:1fr}
+  body{padding-inline:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="kicker">Hitting tools, reports and research</div>
+    <h1>Quentin<br>Evers</h1>
+    <p class="intro">Software I have built for hitting coaches and hitters: game-day tracking, teaching tools that turn Statcast bat tracking into something a coach can use, development reports, and research on how swing plane meets pitch plane.</p>
+    <div class="count"><span><b>6</b> projects</span><span><b>4</b> live on the web</span><span><b>2025</b> Statcast season</span></div>
+  </header>
+
+  <section>
+    <h2 class="sec">Featured</h2>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="tracker.jpg" alt="Hitter Tracker hitter page with slash line, wOBA, xwOBA, zone profile heat map and spray chart" width="1400" height="615">
+        <figcaption>Hitter page: filters, slash line, zone profile, spray chart. Sample data.</figcaption>
+      </figure>
+      <div class="body">
+        <div class="tag">Game day / college program</div>
+        <h3>Mount Marty Hitter Tracker</h3>
+        <p>Pitch-by-pitch tracking and swing-decision reports for Mount Marty hitters. A coach charts the game live, and every hitter page, team page and export updates from the same shared data.</p>
+        <ul class="points">
+          <li>Live game charting, hitter, team, games and roster views</li>
+          <li>Zone profile by pitch density, swing rate, miss rate, exit velo, expected damage and decision runs</li>
+          <li>Filter by games or scrimmages, count, pitch type, pitcher hand and date</li>
+          <li>One link for the whole staff, with a free-tier hosted database behind it</li>
+        </ul>
+        <div class="chips"><span>wOBA</span><span>xwOBA</span><span>BABIP</span><span>K% / BB%</span><span>spray chart</span></div>
+        <div class="links"><a href="https://qevers23.github.io/hitter-tracker/" target="_blank" rel="noopener">Open the tracker</a><a href="https://github.com/qevers23/hitter-tracker" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </article>
+
+    <article class="feature">
+      <figure class="shot">
+        <img src="batpath.jpg" alt="Bat Path Explainer section showing a 3D bat path at contact with attack angle and swing tilt sliders" width="1192" height="1130">
+        <figcaption>Steep vs. flat: attack angle and swing tilt with MLB ranges.</figcaption>
+      </figure>
+      <div class="body">
+        <div class="tag">Teaching / coach education</div>
+        <h3>Bat Path Explainer</h3>
+        <p>An interactive 3D explainer for coaches on attack angle, swing tilt, attack direction, bat speed and getting on plane. Each concept pairs a swing you can orbit and scrub with where MLB hitters actually live.</p>
+        <ul class="points">
+          <li>Five camera views (3/4, side, catcher, top, low) and a play-through to contact</li>
+          <li>Sliders for attack angle, swing tilt, swing length and pitch height</li>
+          <li>MLB 10th, median and 90th percentile for every metric, from 2025 pitch-level Statcast bat tracking</li>
+          <li>"Where coaches get this wrong" notes tied to common cues</li>
+        </ul>
+        <div class="chips"><span>attack angle</span><span>swing tilt</span><span>attack direction</span><span>intercept point</span></div>
+        <div class="links"><a href="https://qevers23.github.io/Bat-Path-Explainer/" target="_blank" rel="noopener">Open the explainer</a><a href="https://github.com/qevers23/Bat-Path-Explainer" target="_blank" rel="noopener">GitHub</a></div>
+      </div>
+    </article>
+
+    <article class="feature">
+      <figure class="shot tall">
+        <img src="devreport.jpg" alt="Hitter Dev Report showing file loader, athlete header and swing profile metrics table" width="1400" height="1400">
+        <figcaption>File loader, athlete header and swing profile. Mock athlete.</figcaption>
+      </figure>
+      <div class="body">
+        <div class="tag">Player development / reports</div>
+        <h3>Hitter Dev Report</h3>
+        <p>One page that turns a hitter's Blast and HitTrax exports into a full development report and prints as a PDF you can hand the athlete. It replaces a three-tool workflow: swing profile in one, batted ball in another, comparison numbers in a third.</p>
+        <ul class="points">
+          <li>Drag in Blast per-swing CSV, HitTrax CSV and Driveline Snapshot or Swing Profile PDFs, in any order</li>
+          <li>Swing profile, batted ball and point-of-contact sections compared against a chosen playing level</li>
+          <li>Drop in a program logo and the report takes on its colors</li>
+          <li>Runs from a single HTML file with nothing to install</li>
+        </ul>
+        <div class="chips"><span>bat speed</span><span>rotational accel.</span><span>on-plane eff.</span><span>exit velo</span><span>contact depth</span></div>
+        <div class="links"><span class="status">Single-file tool, shared directly</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2 class="sec">Research</h2>
+    <article class="feature" style="padding-top:0;border-top:0">
+      <figure class="shot" aria-hidden="true" style="padding:28px">
+        <svg viewBox="0 0 520 300" width="100%" role="img" aria-label="Diagram of a pitch descending at a VAA and a bat path rising at an attack angle">
+          <line x1="20" y1="250" x2="500" y2="250" stroke="var(--line)" stroke-width="2"/>
+          <path d="M40 60 Q 240 120 420 196" fill="none" stroke="var(--muted)" stroke-width="3" stroke-dasharray="7 6"/>
+          <circle cx="420" cy="196" r="9" fill="var(--panel)" stroke="var(--ink)" stroke-width="2.5"/>
+          <line x1="230" y1="236" x2="470" y2="176" stroke="var(--accent)" stroke-width="7" stroke-linecap="round"/>
+          <text x="40" y="44" fill="var(--muted)" font-family="IBM Plex Mono, monospace" font-size="15">pitch: VAA -5.0&#176;</text>
+          <text x="230" y="278" fill="var(--accent)" font-family="IBM Plex Mono, monospace" font-size="15">bat: attack angle +14&#176;</text>
+          <text x="20" y="300" fill="var(--muted)" font-family="IBM Plex Mono, monospace" font-size="13">illustration, not to scale</text>
+        </svg>
+      </figure>
+      <div class="body">
+        <div class="tag">Research / MLB 2025</div>
+        <h3>VAA Matcher</h3>
+        <p>Every 2025 MLB hitter's attack angle against the vertical approach angle of the pitches he faces. Plane mismatch is a mechanical explanation for why some hitters struggle with some pitch types.</p>
+        <ul class="points">
+          <li>Five views: 3D success ridge, VAA x attack angle scatter, violins by pitch type, gap-to-outcome curves and a zone map</li>
+          <li><b>Plane Match Score</b>, a 0-100 score for how closely a hitter's attack angle tracks the league's xwOBA-optimal angle for each pitch's VAA and height</li>
+          <li>Each hitter compared against hitters in the same bat-speed group</li>
+        </ul>
+        <div class="chips"><span>VAA</span><span>HAA</span><span>attack angle</span><span>xwOBA</span><span>barrel%</span><span>whiff%</span></div>
+        <div class="links"><span class="status">Portable HTML build, not hosted yet</span></div>
+      </div>
+    </article>
+  </section>
+
+  <section>
+    <h2 class="sec">Practice planning</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 140 64"><g fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="1" width="138" height="62"/><line x1="1" y1="17" x2="139" y2="17"/><line x1="1" y1="32" x2="139" y2="32"/><line x1="1" y1="47" x2="139" y2="47"/><line x1="44" y1="1" x2="44" y2="63"/></g>
+            <rect x="46" y="19" width="56" height="11" fill="var(--accent)"/></svg>
+        </div>
+        <div class="tag">Pre-game</div>
+        <h3>BP Builder</h3>
+        <p>A blank pre-game batting practice template that a coaching staff fills in for their own groups, rounds and timing.</p>
+        <div class="links"><a href="https://qevers23.github.io/bp-builder/" target="_blank" rel="noopener">Open</a><a href="https://github.com/qevers23/bp-builder" target="_blank" rel="noopener">GitHub</a></div>
+      </article>
+      <article class="card">
+        <div class="glyph" aria-hidden="true">
+          <svg viewBox="0 0 140 64"><g fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="1" y="1" width="138" height="62"/><line x1="20.7" y1="1" x2="20.7" y2="63"/><line x1="40.4" y1="1" x2="40.4" y2="63"/><line x1="60.1" y1="1" x2="60.1" y2="63"/><line x1="79.9" y1="1" x2="79.9" y2="63"/><line x1="99.6" y1="1" x2="99.6" y2="63"/><line x1="119.3" y1="1" x2="119.3" y2="63"/><line x1="1" y1="14" x2="139" y2="14"/></g>
+            <rect x="42.4" y="16" width="16" height="22" fill="var(--accent)"/><rect x="81.9" y="16" width="16" height="34" fill="var(--accent)"/></svg>
+        </div>
+        <div class="tag">Weekly plan</div>
+        <h3>Weekly Hitting Builder</h3>
+        <p>A blank weekly hitting calendar that a staff fills in themselves, for laying out the week's work around games.</p>
+        <div class="links"><a href="https://qevers23.github.io/weekly-hitting-builder/" target="_blank" rel="noopener">Open</a><a href="https://github.com/qevers23/weekly-hitting-builder" target="_blank" rel="noopener">GitHub</a></div>
+      </article>
+    </div>
+  </section>
+
+  <footer><span>Quentin Evers</span><a href="https://github.com/qevers23" target="_blank" rel="noopener">github.com/qevers23</a></footer>
+</div>
+</body>
+</html>
