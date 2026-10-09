@@ -60,7 +60,7 @@ section{border-top:1px solid var(--line)}
 .hero h1{font-size:clamp(60px,9vw,124px);line-height:.92;letter-spacing:-.055em}
 .hero h1 span{display:block;color:var(--accent)}
 .intro{font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:var(--soft);max-width:30em;margin:0}
-.intro strong{color:var(--ink);font-weight:600}
+.intro a.inline{color:var(--ink);font-weight:600;text-decoration-color:var(--gold);text-underline-offset:4px;text-decoration-thickness:2px}
 .actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 .hero-photo{margin:0 18px 18px 0;justify-self:end;width:100%;max-width:360px;position:relative}
 .hero-photo::before{content:'';position:absolute;inset:18px -18px -18px 18px;background:var(--navy);border-radius:8px}
@@ -218,7 +218,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     <div class="hero-copy">
       <span class="status">Hitting Trainer at Driveline Baseball, Tampa FL</span>
       <h1>Quentin <span>Evers</span></h1>
-      <p class="intro">I help hitters understand what it takes to reach the next level, and I build <strong>the tools that help coaches get them there.</strong></p>
+      <p class="intro">I coach hitters. I also build tools for the players and coaches I work with, and most of them are free to use <a class="inline" href="#work">below</a>.</p>
       <div class="actions">
         <a class="btn btn-solid" href="#work">See my work</a>
         <a class="btn btn-ghost" href="#writing">Read the blog</a>
@@ -241,7 +241,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     </div>
     <div class="about-text">
       <p class="label">About</p>
-      <h2>Data made me a better player. <em>Now I coach with it.</em></h2>
+      <h2>I had coaches who used data to develop me. <em>Now I try to be that coach.</em></h2>
       <p>I'm a hitting trainer at Driveline Baseball in Tampa, Florida. Before that, I was the hitting coach at Dakota State University in Madison, South Dakota.</p>
       <p>Most of my life is dedicated to furthering athletes' careers and helping them understand what they need to do to get to the next level. Early in my college career I was fortunate to have coaches who used data and technology to develop players. Those experiences are a big part of why I use the same resources in my own coaching.</p>
       <p>At Driveline I've had the chance to put my creativity to the test and build tools that help both players and coaches. This site is a home for everything I make and my thoughts on offensive development. It will keep changing as I keep improving in my career. Hopefully someone finds it useful, interesting, or both.</p>
@@ -258,49 +258,49 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <div class="section-head">
       <div><p class="label">Selected work</p><h2>Tools I've built</h2></div>
-      <p>Software for coaches and hitters: game-day tracking, teaching tools built on Statcast bat tracking, development reports and research.</p>
+      <p>Things I've made for players and coaches. Most of them are live, so click through and try them.</p>
     </div>
     <div class="grid">
       <article class="project">
         <a class="shot" href="https://qevers23.github.io/hitter-tracker/" target="_blank" rel="noopener"><img src="tracker.jpg" alt="Hitting Tracker hitter page with slash line, zone profile and spray chart" width="1200" height="750" loading="lazy"></a>
         <div class="project-head"><h3>Hitting Tracker</h3><span class="idx">01</span></div>
         <p class="cat">Game day / <span class="live">Live</span></p>
-        <p>Pitch-by-pitch tracking and swing-decision reports, built for the Mount Marty staff. A coach charts the game live and every hitter page, team page and export updates from the same shared data.</p>
+        <p>Built for the Mount Marty staff. One coach charts the game pitch by pitch, and every hitter page, team page and export updates from that same data. Swing decisions included.</p>
         <div class="project-links"><a class="ext" href="https://qevers23.github.io/hitter-tracker/" target="_blank" rel="noopener">Open tool</a><a class="ext" href="https://github.com/qevers23/hitter-tracker" target="_blank" rel="noopener">GitHub</a></div>
       </article>
       <article class="project">
         <a class="shot" href="https://qevers23.github.io/Bat-Path-Explainer/" target="_blank" rel="noopener"><img src="batpath.jpg" alt="Bat Path Explainer with a tracked swing in three dimensions" width="1200" height="750" loading="lazy"></a>
         <div class="project-head"><h3>Bat Path Explainer</h3><span class="idx">02</span></div>
         <p class="cat">Coach education / <span class="live">Live</span></p>
-        <p>An interactive walkthrough of the bat path for coaches: up or down, side to side, swinging fast and adjustability. Built on 330,422 tracked swings from the 2025 MLB regular season, with each swing rebuilt in 3D.</p>
+        <p>A walkthrough of the bat path, written for coaches. Is the barrel working up or down, side to side, how fast, and how adjustable? Every swing is rebuilt in 3D from 330,422 tracked swings in the 2025 MLB season.</p>
         <div class="project-links"><a class="ext" href="https://qevers23.github.io/Bat-Path-Explainer/" target="_blank" rel="noopener">Open tool</a><a class="ext" href="https://github.com/qevers23/Bat-Path-Explainer" target="_blank" rel="noopener">GitHub</a></div>
       </article>
       <article class="project">
         <a class="shot" href="https://qevers23.github.io/vaa-matcher/" target="_blank" rel="noopener"><img src="vaa.jpg" alt="VAA Matcher 3D view of attack angle against pitch VAA" width="1200" height="750" loading="lazy"></a>
         <div class="project-head"><h3>VAA Matcher</h3><span class="idx">03</span></div>
         <p class="cat">Research / <span class="live">Live</span></p>
-        <p>Every 2025 MLB hitter's attack angle against the vertical approach angle of the pitches he sees. Plane mismatch explains why some hitters struggle with some pitch types, and the Plane Match Score rates it 0 to 100.</p>
+        <p>Lines up every 2025 MLB hitter's attack angle with the slope of the pitches he sees. When the two don't match, that's one reason a hitter struggles with certain pitch types. The Plane Match Score puts a number on it, 0 to 100.</p>
         <div class="project-links"><a class="ext" href="https://qevers23.github.io/vaa-matcher/" target="_blank" rel="noopener">Open tool</a><span class="note">18 MB, best on desktop</span></div>
       </article>
       <article class="project">
         <div class="shot"><img src="devreport.jpg" alt="Hitter Dev Report swing profile for an example athlete" width="1200" height="750" loading="lazy"></div>
         <div class="project-head"><h3>Hitter Dev Report</h3><span class="idx">04</span></div>
         <p class="cat">Player development / Single-file tool</p>
-        <p>Turns a hitter's Blast and HitTrax exports into one development report, compared against a chosen playing level, that prints as a PDF for the athlete. Drop in a program logo and the report takes on its colors.</p>
+        <p>Drop in a hitter's Blast and HitTrax files and get one report, compared to whatever level you pick, that prints as a PDF the athlete can take home. Add your program's logo and the report picks up its colors.</p>
         <div class="project-links"><span class="note">Example athlete shown</span></div>
       </article>
       <article class="project">
         <a class="shot" href="https://qevers23.github.io/bp-builder/" target="_blank" rel="noopener"><img src="bp.jpg" alt="BP Builder pre-game batting practice template" width="1200" height="750" loading="lazy"></a>
         <div class="project-head"><h3>BP Builder</h3><span class="idx">05</span></div>
         <p class="cat">Practice planning / <span class="live">Live</span></p>
-        <p>A blank pre-game batting practice template a staff fills in: groups, rotation timing, cage rounds and on-field rounds. Plans save in the browser and print or export to PDF.</p>
+        <p>A blank pre-game BP sheet. Your staff fills in the groups, the timing, cage rounds and on-field rounds, then saves it or prints it.</p>
         <div class="project-links"><a class="ext" href="https://qevers23.github.io/bp-builder/" target="_blank" rel="noopener">Open tool</a><a class="ext" href="https://github.com/qevers23/bp-builder" target="_blank" rel="noopener">GitHub</a></div>
       </article>
       <article class="project">
         <a class="shot" href="https://qevers23.github.io/weekly-hitting-builder/" target="_blank" rel="noopener"><img src="weekly.jpg" alt="Weekly Hitting Builder template" width="1200" height="750" loading="lazy"></a>
         <div class="project-head"><h3>Weekly Hitting Builder</h3><span class="idx">06</span></div>
         <p class="cat">Practice planning / <span class="live">Live</span></p>
-        <p>A blank weekly hitting calendar. Each day gets a focus and a plan for every cage and the field, with machines, pitch shapes, drills and swing counts.</p>
+        <p>A blank weekly hitting calendar. Pick a focus for each day, then plan every cage and the field: machines, pitch shapes, drills and swing counts.</p>
         <div class="project-links"><a class="ext" href="https://qevers23.github.io/weekly-hitting-builder/" target="_blank" rel="noopener">Open tool</a><a class="ext" href="https://github.com/qevers23/weekly-hitting-builder" target="_blank" rel="noopener">GitHub</a></div>
       </article>
     </div>
@@ -339,7 +339,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <div class="section-head">
       <div><p class="label">Writing</p><h2>Thoughts on <em>offense</em></h2></div>
-      <p>Write-ups on player development, the tools above, and what I'm learning along the way.</p>
+      <p>Longer write-ups. The first one looks back at my 2024-25 season with the Dakota State offense.</p>
     </div>
     <ul class="posts">
       <li><a href="posts/dsu-offensive-review-2024-25.html">
@@ -356,7 +356,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <p class="label">Contact</p>
     <h2>Let's talk <em>hitting.</em></h2>
-    <p>Coaching, player development, or something you want built. Reach out on any of these.</p>
+    <p>Want to talk hitting, trade drill ideas, or get something built? Send me a message.</p>
     <div class="contact-links">
       <a class="btn btn-solid ext" href="https://www.linkedin.com/in/quentin-evers-943628442/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn-ghost ext" href="https://x.com/QuentinEvers" target="_blank" rel="noopener">X / Twitter</a>
