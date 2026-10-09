@@ -96,6 +96,12 @@ section{border-top:1px solid var(--line)}
 .stat span{display:block;margin-top:12px;font-weight:600;font-size:15px}
 .stat small{display:block;color:var(--muted);font-size:14px}
 
+.season{display:grid;grid-template-columns:120px minmax(0,1fr);gap:32px;align-items:start}
+.season + .season{margin-top:56px}
+.season-label{margin:0;padding-top:18px;font-family:var(--mono);font-size:13px;color:var(--muted);border-top:1px solid var(--ink)}
+.season.current .season-label{color:var(--accent)}
+.records{grid-column:2;margin:-4px 0 0;font-size:15px;color:var(--muted)}
+
 /* Work */
 .work{padding-block:96px}
 .section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
@@ -150,6 +156,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   .hero-photo{justify-self:start;max-width:300px}
   .pair{position:static;max-width:440px}
   .stat-row{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
+  .season{grid-template-columns:1fr;gap:20px}
+  .season-label{border-top:0;padding-top:0}
+  .records{grid-column:1}
   .grid{grid-template-columns:1fr}
   .posts a{grid-template-columns:minmax(0,1fr) 32px;gap:12px}
   .posts .date{grid-column:1/-1}
@@ -218,14 +227,27 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <section class="numbers">
   <div class="wrap">
     <div class="head">
-      <h2>Dakota State offense, 2024-25</h2>
-      <a class="arrow-link" href="posts/dsu-offensive-review-2024-25.html">Read the season review &rarr;</a>
+      <h2>Dakota State offense</h2>
+      <a class="arrow-link" href="posts/dsu-offensive-review-2024-25.html">Read the 2024-25 review &rarr;</a>
     </div>
-    <div class="stat-row">
-      <div class="stat"><b>.300</b><span>Team batting average</span><small>.395 OBP / .498 SLG</small></div>
-      <div class="stat"><b>74</b><span>Home runs</span><small>24th in the NAIA</small></div>
-      <div class="stat"><b>331</b><span>RBI</span><small>2nd in program history</small></div>
-      <div class="stat"><b>4</b><span>Trojans in pro ball</span><small>From the last two teams</small></div>
+    <div class="season current">
+      <p class="season-label">2025-26</p>
+      <div class="stat-row">
+        <div class="stat"><b>.305</b><span>Team batting average</span><small>.402 OBP / .482 SLG</small></div>
+        <div class="stat"><b>65</b><span>Home runs</span><small>158 extra-base hits</small></div>
+        <div class="stat"><b>366</b><span>Runs</span><small>338 RBI in 52 games</small></div>
+        <div class="stat"><b>88</b><span>Stolen bases</span><small>88 of 101 attempts</small></div>
+      </div>
+      <p class="records">School records: Cameron DeMaria, 66 RBI. Connor Raney, 62 runs. Raney also tied the single-season marks for stolen bases (33) and walks (35).</p>
+    </div>
+    <div class="season">
+      <p class="season-label">2024-25</p>
+      <div class="stat-row">
+        <div class="stat"><b>.300</b><span>Team batting average</span><small>.395 OBP / .498 SLG</small></div>
+        <div class="stat"><b>74</b><span>Home runs</span><small>24th in the NAIA</small></div>
+        <div class="stat"><b>331</b><span>RBI</span><small>2nd in program history</small></div>
+        <div class="stat"><b>4</b><span>Trojans in pro ball</span><small>From the last two teams</small></div>
+      </div>
     </div>
   </div>
 </section>
