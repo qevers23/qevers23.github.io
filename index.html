@@ -13,7 +13,7 @@
    12-column feel: hero 7/5, about photos 5 / text 7, work 2-up, writing as an index list. */
 :root{
   --bg:#F6F5F1; --surface:#FFFFFF; --ink:#121417; --soft:#3A3D42; --muted:#73767C;
-  --line:#E2E1DB; --accent:#1B355C; --navy:#12284A; --navy-2:#1B355C; --gold:#E2A93B; --on-navy:#C9D2E0;
+  --line:#E2E1DB; --accent:#2A5039; --navy:#1F3D2B; --navy-2:#2A5039; --gold:#C8693A; --clay-lt:#E8A17A; --on-navy:#CFDACF;
   --sans:"Schibsted Grotesk",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   color-scheme:light;
@@ -66,18 +66,10 @@ section{border-top:1px solid var(--line)}
 .hero-photo::before{content:'';position:absolute;inset:18px -18px -18px 18px;background:var(--navy);border-radius:8px}
 .hero-photo::after{content:'';position:absolute;right:-34px;top:-22px;width:92px;height:92px;border-radius:50%;border:2px dashed var(--gold)}
 .hero-photo img{position:relative;z-index:1;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px}
-.tag-now{position:absolute;z-index:2;left:-28px;bottom:42px;background:var(--surface);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(18,40,74,.16);line-height:1.25}
+.tag-now{position:absolute;z-index:2;left:-28px;bottom:42px;background:var(--surface);border-radius:12px;padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 12px 30px rgba(31,61,43,.16);line-height:1.25}
 .tag-now b{display:block;font-size:14px}
 .tag-now small{color:var(--muted);font-size:12.5px}
 .tag-now i{width:9px;height:9px;border-radius:50%;background:#3E9B62;box-shadow:0 0 0 4px rgba(62,155,98,.16);flex:none}
-
-/* Strip */
-.strip{background:var(--navy);color:var(--on-navy);overflow:hidden;padding-block:16px;font-family:var(--mono);font-size:13px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
-.strip-track{display:inline-flex;animation:slide 48s linear infinite}
-.strip span{padding-inline:22px;position:relative}
-.strip span::after{content:'';position:absolute;right:-3px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--gold)}
-@keyframes slide{to{transform:translateX(-50%)}}
-.strip + section{border-top:0}
 
 /* About */
 .about{padding-block:96px}
@@ -104,20 +96,20 @@ section{border-top:1px solid var(--line)}
 /* Numbers */
 .numbers{padding-block:88px;background:var(--navy);color:#fff;border-top:0}
 .numbers + section{border-top:0}
-.numbers .arrow-link{border-color:var(--gold);color:#fff}
-.numbers .arrow-link:hover{color:var(--gold)}
+.numbers .arrow-link{border-color:var(--clay-lt);color:#fff}
+.numbers .arrow-link:hover{color:var(--clay-lt)}
 .numbers .head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:40px}
 .numbers h2{font-size:clamp(26px,2.8vw,34px)}
 .stat-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
 .stat{border-top:1px solid rgba(255,255,255,.28);padding-top:18px}
 .stat b{display:block;font-weight:500;font-size:clamp(44px,5vw,64px);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
 .stat span{display:block;margin-top:12px;font-weight:600;font-size:15px;color:#fff}
-.stat small{display:block;color:var(--gold);font-size:14px}
+.stat small{display:block;color:var(--clay-lt);font-size:14px}
 
 .season{display:grid;grid-template-columns:120px minmax(0,1fr);gap:32px;align-items:start}
 .season + .season{margin-top:56px}
 .season-label{margin:0;padding-top:18px;font-family:var(--mono);font-size:13px;color:var(--on-navy);border-top:1px solid rgba(255,255,255,.28)}
-.season.current .season-label{color:var(--gold)}
+.season.current .season-label{color:var(--clay-lt)}
 .records{grid-column:2;margin:-4px 0 0;font-size:15px;color:var(--on-navy)}
 
 /* Work */
@@ -127,14 +119,14 @@ section{border-top:1px solid var(--line)}
 .section-head p{margin:0;max-width:26em;color:var(--muted)}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px}
 .project{display:flex;flex-direction:column;gap:16px;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 12px 26px;transition:transform .25s ease,box-shadow .25s ease}
-.project:hover{transform:translateY(-4px);box-shadow:0 22px 44px -22px rgba(18,40,74,.35)}
+.project:hover{transform:translateY(-4px);box-shadow:0 22px 44px -22px rgba(31,61,43,.35)}
 .project > *:not(.shot){margin-inline:12px}
 .shot{display:block;aspect-ratio:16/10;border-radius:10px;overflow:hidden;background:#ECEBE6;border:1px solid var(--line)}
 .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 a.shot:hover img{transform:scale(1.03)}
 .project-head{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:6px}
 .project h3{font-size:26px;line-height:1.15;letter-spacing:-.03em}
-.project .idx{font-family:var(--mono);font-size:12px;color:var(--navy);background:#FBEFD6;border-radius:999px;padding:3px 9px}
+.project .idx{font-family:var(--mono);font-size:12px;color:var(--navy);background:#F5E2D6;border-radius:999px;padding:3px 9px}
 .project .cat{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:-8px;margin-bottom:0}
 .project .cat .live{color:#3E9B62}
 .project p{margin-top:0;margin-bottom:0;color:var(--soft)}
@@ -158,9 +150,9 @@ a.shot:hover img{transform:scale(1.03)}
 /* Contact */
 .contact{padding-block:110px 96px;background:var(--navy);color:#fff;border-top:0}
 .contact .label{color:var(--on-navy)}
-.contact h2 em{color:var(--gold)}
-.contact .btn-solid{background:var(--gold);border-color:var(--gold);color:var(--navy);box-shadow:none}
-.contact .btn-solid:hover{background:#F0BC57;border-color:#F0BC57;box-shadow:none}
+.contact h2 em{color:var(--clay-lt)}
+.contact .btn-solid{background:var(--clay-lt);border-color:var(--clay-lt);color:var(--navy);box-shadow:none}
+.contact .btn-solid:hover{background:#F0B590;border-color:#F0B590;box-shadow:none}
 .contact .btn-ghost{border-color:rgba(255,255,255,.4);color:#fff}
 .contact .btn-ghost:hover{background:#fff;color:var(--navy)}
 .contact h2{font-size:clamp(44px,7vw,92px);letter-spacing:-.05em;line-height:.98}
@@ -230,8 +222,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
     </figure>
   </div>
 </section>
-
-<div class="strip" aria-hidden="true"><div class="strip-track"><span>Bat speed</span><span>Attack angle</span><span>Swing decisions</span><span>Bat to ball</span><span>Vertical approach angle</span><span>Blast Motion</span><span>HitTrax</span><span>Statcast bat tracking</span><span>Player development</span><span>Bat speed</span><span>Attack angle</span><span>Swing decisions</span><span>Bat to ball</span><span>Vertical approach angle</span><span>Blast Motion</span><span>HitTrax</span><span>Statcast bat tracking</span><span>Player development</span></div></div>
 
 <section class="about" id="about">
   <div class="wrap">
@@ -356,7 +346,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
   <div class="wrap">
     <p class="label">Contact</p>
     <h2>Let's talk <em>hitting.</em></h2>
-    <p>Want to talk hitting, trade drill ideas, or get something built? Send me a message.</p>
+    <p>Trade drill ideas, compare notes on a hitter, or get something built. Send me a message.</p>
     <div class="contact-links">
       <a class="btn btn-solid ext" href="https://www.linkedin.com/in/quentin-evers-943628442/" target="_blank" rel="noopener">LinkedIn</a>
       <a class="btn btn-ghost ext" href="https://x.com/QuentinEvers" target="_blank" rel="noopener">X / Twitter</a>
