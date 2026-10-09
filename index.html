@@ -32,11 +32,13 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .wrap{max-width:1120px;margin:0 auto}
 
 /* Hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:end;padding-block:72px 48px;border-bottom:2px solid var(--ink)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:64px;align-items:center;padding-block:72px 48px;border-bottom:2px solid var(--ink)}
 .hero-text{display:flex;flex-direction:column;gap:22px;min-width:0}
 .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0}
 h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(64px,11vw,136px);line-height:.84;letter-spacing:.005em;margin:0}
-.lede{margin:0;max-width:34em;font-size:clamp(17px,1.6vw,19px);line-height:1.55}
+.bio{display:flex;flex-direction:column;gap:14px;max-width:38em}
+.bio p{margin:0;font-size:17px;line-height:1.6}
+.bio p:first-child{font-size:clamp(19px,1.8vw,22px);line-height:1.45;font-weight:500}
 .social{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
 .social a{font-size:14px;font-weight:600;text-decoration:none;border:1.5px solid var(--ink);padding:8px 16px;border-radius:999px;transition:background .15s,color .15s}
 .social a:hover{background:var(--ink);color:var(--ground)}
@@ -85,10 +87,13 @@ footer a:hover{color:var(--accent)}
 
   <header class="hero">
     <div class="hero-text">
-      <p class="kicker">Hitting tools, reports and research</p>
+      <p class="kicker">Hitting trainer, Driveline Baseball</p>
       <h1>Quentin<br>Evers</h1>
-      <p class="lede">I build software for hitting coaches and hitters: game-day tracking, teaching tools that make Statcast bat tracking usable for coaches, development reports, and research on how swing plane meets pitch plane.</p>
-      <nav class="social" aria-label="Profiles">
+      <div class="bio">
+        <p>I'm a hitting trainer at Driveline Baseball in Tampa, Florida. Before that, I was the hitting coach at Dakota State University in Madison, South Dakota.</p>
+        <p>Most of my life is dedicated to furthering athletes' careers and helping them understand what they need to do to get to the next level. Early in my college career I was fortunate to have coaches who used data and technology to develop players. Those experiences are a big part of why I use the same resources in my own coaching.</p>
+        <p>At Driveline I've had the chance to put my creativity to the test and build tools that help both players and coaches. Some of them are below. This site is a home for everything I make and my thoughts on offensive development. It will keep changing as I keep improving in my career. Hopefully someone finds it useful, interesting, or both.</p>
+      </div>      <nav class="social" aria-label="Profiles">
         <a href="https://www.linkedin.com/in/quentin-evers-943628442/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://x.com/QuentinEvers" target="_blank" rel="noopener">X / Twitter</a>
         <a href="https://github.com/qevers23" target="_blank" rel="noopener">GitHub</a>
