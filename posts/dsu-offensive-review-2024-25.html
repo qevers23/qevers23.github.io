@@ -7,21 +7,16 @@
 <meta name="description" content="How the Dakota State offense approached player development in 2024-25: strategy, fall, winter, and results.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
 <style>
 /* Layout: one reading column (~68ch), with stat grid, table and spotlight grid allowed to run a little wider. */
 :root{
-  --ground:#F2F3EF; --panel:#FFFFFF; --ink:#14212C; --muted:#5C6872;
-  --line:#D9DDD7; --accent:#A9481F; --chip:#E7EAE4;
-  --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
-  --body:"Public Sans",-apple-system,"Segoe UI",sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --ground:#0E141A; --panel:#151D25; --ink:#E7EBEC; --muted:#98A4AC;
-    --line:#26323C; --accent:#E2774B; --chip:#1D2731; color-scheme:dark;
-  }
+  --ground:#F2F4F7; --panel:#FFFFFF; --ink:#0C1E3C; --muted:#5B6A82;
+  --line:#DCE1E9; --accent:#D8901A; --gold:#F3AF2F; --chip:#E7EAF0;
+  --display:"Archivo","Arial Black",Impact,sans-serif;
+  --body:"Hanken Grotesk",-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -33,15 +28,15 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   font-family:var(--mono);font-size:13px;border-bottom:1px solid var(--line)}
 .top a{text-decoration:none}
 .top a:hover{color:var(--accent)}
-.top .home{font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.01em}
+.top .home{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:17px;text-transform:uppercase;letter-spacing:.04em}
 
 article{max-width:720px;margin:0 auto;padding-block:56px 40px}
 .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
-h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(40px,6.4vw,68px);line-height:.92;margin:0 0 24px;text-wrap:balance}
-.byline{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:13px;color:var(--muted);padding-bottom:28px;border-bottom:2px solid var(--ink);margin-bottom:36px}
+h1{font-family:var(--display);font-stretch:125%;font-weight:900;text-transform:uppercase;font-size:clamp(32px,4.6vw,52px);line-height:.95;margin:0 0 24px;text-wrap:balance}
+.byline{border-bottom-color:var(--gold)!important;display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:13px;color:var(--muted);padding-bottom:28px;border-bottom:2px solid var(--ink);margin-bottom:36px}
 .byline a{color:var(--muted)}
 .byline a:hover{color:var(--accent)}
-h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:34px;line-height:1;margin:56px 0 18px;letter-spacing:.01em}
+h2{font-family:var(--display);font-stretch:118%;font-weight:900;text-transform:uppercase;font-size:28px;line-height:1;margin:56px 0 18px;letter-spacing:.01em}
 article p{margin:0 0 20px}
 .wide{margin-block:32px}
 @media (min-width:900px){ .wide{margin-inline:-90px} }
@@ -51,7 +46,7 @@ ol.cats li::marker{font-family:var(--mono);color:var(--accent)}
 
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
 .stat{background:var(--panel);padding:16px 18px;display:flex;flex-direction:column;gap:2px}
-.stat b{font-family:var(--display);font-weight:800;font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
+.stat b{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
 .stat span{font-size:13.5px;font-weight:600}
 .stat small{font-family:var(--mono);font-size:11.5px;color:var(--accent);line-height:1.4}
 
@@ -73,7 +68,7 @@ ul.pros span{color:var(--muted)}
 .spotlights img{display:block;width:100%;height:auto;border-radius:3px;max-width:100%}
 .spotlights figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
 
-.signoff{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:30px;margin-top:32px}
+.signoff{font-family:var(--display);font-stretch:118%;font-weight:900;color:var(--accent);text-transform:uppercase;font-size:30px;margin-top:32px}
 .back{max-width:720px;margin:0 auto;padding-block:24px 64px;border-top:2px solid var(--ink);font-family:var(--mono);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .back a{text-decoration:none}
 .back a:hover{color:var(--accent)}
@@ -82,7 +77,7 @@ ul.pros span{color:var(--muted)}
   body{padding-inline:16px;font-size:17px}
   .spotlights{grid-template-columns:1fr}
   .stat{padding:12px}
-  .stat b{font-size:28px}
+  .stat b{font-size:24px}
   ul.pros li{grid-template-columns:1fr;gap:2px}
 }
 </style>
