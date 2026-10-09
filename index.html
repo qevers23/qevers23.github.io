@@ -3,312 +3,214 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quentin Evers - Hitting Trainer and Tool Builder</title>
+<title>Quentin Evers - Hitting Trainer</title>
 <meta name="description" content="Quentin Evers: hitting trainer at Driveline Baseball, former Dakota State hitting coach. Tools, reports and writing on offensive player development.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,500..900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
-/* Ballpark poster: navy + gold, light paper sections with navy and gold bands, curved seams between sections.
-   Hero = player in front of a giant gold baseball. */
+/* Minimal: warm white, near-black ink, one muted navy accent, thin rules and whitespace doing the separating.
+   12-column feel: hero 7/5, about photos 5 / text 7, work 2-up, writing as an index list. */
 :root{
-  --navy:#0C1E3C; --navy-2:#15305C; --gold:#F3AF2F; --gold-deep:#D8901A;
-  --paper:#F2F4F7; --white:#FFFFFF; --muted:#5B6A82; --line:#DCE1E9; --stitch:#C8202F;
-  --display:"Archivo","Arial Black",Impact,sans-serif;
-  --body:"Hanken Grotesk",-apple-system,"Segoe UI",sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
-  --wrap:1180px;
+  --bg:#FAFAF7; --surface:#FFFFFF; --ink:#141414; --soft:#3D3D3A; --muted:#75756F;
+  --line:#E4E3DD; --accent:#24466E;
+  --sans:"Schibsted Grotesk",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--navy);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
 a{color:inherit}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.wrap{max-width:var(--wrap);margin:0 auto;padding-inline:28px}
-.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;margin:0}
-.display{font-family:var(--display);font-stretch:125%;font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.01em;margin:0;text-wrap:balance}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:32px}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0}
+h1,h2,h3{font-weight:600;letter-spacing:-.035em;margin:0;text-wrap:balance}
+h2{font-size:clamp(34px,4.2vw,52px);line-height:1.05}
+h2 em,h1 em{font-style:italic;font-weight:400;color:var(--accent)}
+section{border-top:1px solid var(--line)}
 
-/* Buttons */
-.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:15px 24px;border-radius:999px;border:2px solid var(--navy);transition:transform .18s ease,background .18s,color .18s,box-shadow .18s}
-.btn svg{width:16px;height:16px;transition:transform .18s}
-.btn:hover{transform:translateY(-2px)}
-.btn:hover svg{transform:translateX(3px)}
-.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--navy);box-shadow:0 6px 0 var(--gold-deep)}
-.btn-gold:hover{box-shadow:0 8px 0 var(--gold-deep)}
-.btn-line{background:transparent;color:var(--navy)}
-.btn-line:hover{background:var(--navy);color:var(--white)}
-.btn-navy{background:var(--navy);color:var(--white)}
-.btn-navy:hover{background:var(--navy-2);border-color:var(--navy-2)}
+/* Links and buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;text-decoration:none;padding:13px 22px;border-radius:999px;transition:background .2s,color .2s,border-color .2s}
+.btn-solid{background:var(--ink);color:var(--bg);border:1px solid var(--ink)}
+.btn-solid:hover{background:var(--accent);border-color:var(--accent)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.arrow-link{font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid var(--ink);padding-bottom:2px;transition:color .2s,border-color .2s}
+.arrow-link:hover{color:var(--accent);border-color:var(--accent)}
+.ext::after{content:"\2197";font-weight:400;font-size:.95em}
 
 /* Nav */
-.nav{position:sticky;top:0;z-index:20;background:rgba(242,244,247,.86);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s}
-.nav.scrolled{border-bottom-color:var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
-.mark{display:flex;align-items:center;gap:12px;text-decoration:none}
-.mark i{width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-style:normal;font-family:var(--display);font-stretch:125%;font-weight:900;font-size:14px;letter-spacing:.02em}
-.mark b{font-family:var(--display);font-stretch:118%;font-weight:800;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
-.links{display:flex;align-items:center;gap:30px;font-weight:600;font-size:15px}
-.links a{text-decoration:none;position:relative}
-.links a:not(.btn)::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .2s}
-.links a:not(.btn):hover::after{transform:scaleX(1)}
-.links .btn{padding:10px 18px;font-size:12.5px}
+.nav{position:sticky;top:0;z-index:10;background:rgba(250,250,247,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:68px;gap:20px}
+.brand{font-weight:600;font-size:17px;text-decoration:none;letter-spacing:-.02em}
+.brand span{color:var(--muted);font-weight:400}
+.nav nav{display:flex;gap:28px;font-size:15px}
+.nav nav a{text-decoration:none;color:var(--soft);transition:color .2s}
+.nav nav a:hover{color:var(--ink)}
 
 /* Hero */
-.hero{position:relative;overflow:hidden;padding-top:40px}
-.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(var(--line) 1.2px,transparent 1.2px);background-size:22px 22px;mask-image:linear-gradient(180deg,#000 0%,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000 0%,transparent 85%);pointer-events:none}
-.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;align-items:end;min-height:640px}
-.hero-copy{padding-block:40px 110px;align-self:center;display:flex;flex-direction:column;gap:26px;position:relative;z-index:2}
-.hero-copy .eyebrow{color:var(--gold-deep);display:flex;align-items:center;gap:12px}
-.hero-copy .eyebrow::before{content:"";width:34px;height:2px;background:var(--gold)}
-.hero h1{font-size:clamp(54px,7.4vw,106px)}
-.hero h1 span{display:block}
-.hero h1 .outline{color:transparent;-webkit-text-stroke:2px var(--navy)}
-.tagline{font-size:clamp(19px,1.9vw,23px);line-height:1.45;max-width:30em;margin:0;font-weight:500}
-.tagline b{font-weight:700;background:linear-gradient(transparent 62%,rgba(243,175,47,.55) 62%)}
-.ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:4px}
-.socials{display:flex;gap:10px;margin-top:6px}
-.socials a{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;background:var(--white);transition:border-color .18s,transform .18s}
-.socials a:hover{border-color:var(--navy);transform:translateY(-2px)}
-.socials svg{width:18px;height:18px;fill:var(--navy)}
+.hero{border-top:0;padding-block:72px 96px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:72px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:28px;padding-bottom:8px}
+.status{display:inline-flex;align-items:center;gap:10px;font-size:14px;color:var(--soft)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:#3E9B62;box-shadow:0 0 0 4px rgba(62,155,98,.15)}
+.hero h1{font-size:clamp(56px,8vw,104px);line-height:.95;letter-spacing:-.05em}
+.intro{font-size:clamp(19px,1.7vw,22px);line-height:1.5;color:var(--soft);max-width:30em;margin:0}
+.intro strong{color:var(--ink);font-weight:600}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-photo{margin:0;justify-self:end;width:100%;max-width:380px}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.hero-photo figcaption{margin-top:12px;display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--muted)}
 
-.hero-art{position:relative;align-self:stretch;display:flex;justify-content:center;align-items:flex-end;min-height:600px}
-.ball{position:absolute;left:50%;bottom:230px;width:min(540px,100%);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFD27A 0%,var(--gold) 45%,var(--gold-deep) 100%)}
-.ball svg{position:absolute;inset:0;width:100%;height:100%}
-.player{position:relative;z-index:2;width:min(420px,80%);display:block;filter:drop-shadow(0 24px 30px rgba(12,30,60,.28))}
-.chip{position:absolute;z-index:3;background:var(--white);border-radius:16px;padding:12px 16px;display:flex;align-items:center;gap:12px;box-shadow:0 14px 34px rgba(12,30,60,.16);font-size:14px;line-height:1.3}
-.chip strong{display:block;font-family:var(--display);font-stretch:112%;font-weight:800;font-size:15px;text-transform:uppercase}
-.chip small{color:var(--muted);font-size:13px}
-.chip .dot{width:10px;height:10px;border-radius:50%;background:#2FB36B;box-shadow:0 0 0 5px rgba(47,179,107,.18);flex:none}
-.chip.now{right:-6px;top:150px}
-.chip.past{left:0;bottom:250px}
-.chip.past .dot{background:#5FA8DC;box-shadow:0 0 0 5px rgba(95,168,220,.2)}
+/* About */
+.about{padding-block:96px}
+.about .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:72px;align-items:start}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:sticky;top:100px}
+.pair img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.pair img:last-child{margin-top:56px}
+.about-text{display:flex;flex-direction:column;gap:22px}
+.about-text h2{margin-top:6px}
+.about-text p:not(.label){margin:0;color:var(--soft);font-size:18px;max-width:36em}
+.timeline{list-style:none;margin:18px 0 0;padding:0;border-top:1px solid var(--line)}
+.timeline li{display:grid;grid-template-columns:72px 64px minmax(0,1fr) auto;gap:20px;align-items:center;padding-block:18px;border-bottom:1px solid var(--line)}
+.timeline .when{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.timeline .now .when{color:var(--accent)}
+.timeline .logo{width:64px;height:40px;border-radius:4px;display:grid;place-items:center;overflow:hidden}
+.timeline .logo.dsu{background:#06173A}
+.timeline .logo.dsu img{width:100%;height:100%;object-fit:cover}
+.timeline .logo.dl{border:1px solid var(--line);background:var(--surface);padding:4px}
+.timeline .logo.dl img{width:100%;height:auto}
+.timeline b{font-weight:600;display:block;line-height:1.3}
+.timeline span.role{color:var(--muted);font-size:15px}
+.timeline .place{color:var(--muted);font-size:14px;text-align:right}
 
-/* Seams (curved section edges) */
-.seam{display:block;width:100%;height:90px;margin-top:-89px;position:relative;z-index:4}
-.seam.below{margin-top:-1px}
-
-/* About (navy) */
-.about{background:var(--navy);color:var(--white);position:relative;z-index:4;padding-block:40px 110px}
-.about .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}
-.about .eyebrow{color:var(--gold)}
-.about h2{font-size:clamp(32px,3.5vw,48px);margin-top:18px}
-.about h2 em{font-style:normal;color:var(--gold)}
-.about-text{display:flex;flex-direction:column;gap:18px;color:#C9D3E3;font-size:17.5px;padding-top:6px}
-.about-text p{margin:0}
-.path{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:20px;align-items:center;margin-top:12px}
-.stop{display:flex;align-items:center;gap:20px;padding:22px;border-radius:20px;background:var(--navy-2);border:1px solid rgba(255,255,255,.08)}
-.stop.now{background:var(--white);color:var(--navy)}
-.logo{width:120px;height:76px;border-radius:12px;display:grid;place-items:center;overflow:hidden;flex:none}
-.logo.dsu{background:#06173A}
-.logo.dsu img{width:100%;height:100%;object-fit:cover}
-.logo.dl{background:var(--white);border:1px solid var(--line);padding:10px}
-.logo.dl img{width:100%;height:auto}
-.stop .when{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-.stop.now .when{color:var(--gold-deep)}
-.stop .org{display:block;font-family:var(--display);font-stretch:118%;font-weight:800;font-size:22px;text-transform:uppercase;line-height:1.05;margin:4px 0}
-.stop .role{font-size:15px;opacity:.8}
-.arrow{width:54px;height:54px;border-radius:50%;background:var(--gold);display:grid;place-items:center;color:var(--navy)}
-.arrow svg{width:22px;height:22px}
-
-/* Numbers (gold band) */
-.numbers{background:var(--gold);position:relative;z-index:3;padding-block:64px 70px;overflow:hidden}
-.numbers::after{content:"331";position:absolute;right:-30px;bottom:-90px;font-family:var(--display);font-stretch:125%;font-weight:900;font-size:340px;line-height:1;color:rgba(12,30,60,.06);pointer-events:none}
-.numbers .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:38px}
-.numbers h2{font-size:clamp(30px,3.6vw,46px)}
-.numbers .head a{font-weight:700;text-decoration:none;border-bottom:2px solid var(--navy);padding-bottom:2px}
-.stat-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative;z-index:1}
-.stat{padding:6px 28px;border-left:2px solid rgba(12,30,60,.22)}
-.stat:first-child{border-left:0;padding-left:0}
-.stat b{display:block;font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(52px,6vw,84px);line-height:.95;font-variant-numeric:tabular-nums}
-.stat span{display:block;font-weight:700;font-size:16px;margin-top:8px}
-.stat small{display:block;font-family:var(--mono);font-size:12px;letter-spacing:.04em;margin-top:4px;opacity:.75}
+/* Numbers */
+.numbers{padding-block:72px}
+.numbers .head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:40px}
+.numbers h2{font-size:clamp(26px,2.8vw,34px)}
+.stat-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.stat{border-top:1px solid var(--ink);padding-top:18px}
+.stat b{display:block;font-weight:500;font-size:clamp(44px,5vw,64px);line-height:1;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:12px;font-weight:600;font-size:15px}
+.stat small{display:block;color:var(--muted);font-size:14px}
 
 /* Work */
-.work{padding-block:110px 120px}
-.section-head{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:56px}
-.section-head .eyebrow{color:var(--gold-deep);margin-bottom:16px}
-.section-head h2{font-size:clamp(40px,4.8vw,68px)}
-.section-head > p{margin:0;color:var(--muted);font-size:18px;max-width:30em;justify-self:end}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px}
-.card{background:var(--white);border-radius:24px;padding:14px 14px 30px;display:flex;flex-direction:column;border:1px solid var(--line);transition:transform .25s ease,box-shadow .25s ease}
-.card:hover{transform:translateY(-6px);box-shadow:0 26px 50px -20px rgba(12,30,60,.28)}
-.shot{display:block;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:var(--navy);position:relative}
-.shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s ease}
-.card:hover .shot img{transform:scale(1.04)}
-.num{position:absolute;left:14px;top:14px;background:var(--gold);color:var(--navy);font-family:var(--display);font-stretch:125%;font-weight:900;font-size:15px;padding:7px 12px;border-radius:999px}
-.card-body{padding:26px 16px 0;display:flex;flex-direction:column;gap:12px;flex:1}
-.meta{display:flex;justify-content:space-between;align-items:center;gap:12px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase}
-.meta .cat{color:var(--gold-deep)}
-.status{display:inline-flex;align-items:center;gap:7px;color:var(--muted)}
-.status.live{color:#1F8A50}
-.status.live::before{content:"";width:8px;height:8px;border-radius:50%;background:#2FB36B}
-.card h3{font-family:var(--display);font-stretch:118%;font-weight:900;text-transform:uppercase;font-size:clamp(26px,2.6vw,34px);line-height:1;margin:0}
-.card p{margin:0;color:#34435C}
-.tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:2px 0 0;padding:0}
-.tags li{font-size:13px;font-weight:600;background:var(--paper);border-radius:999px;padding:4px 12px;color:var(--muted)}
-.card-actions{display:flex;align-items:center;gap:20px;margin-top:auto;padding-top:12px}
-.card-actions .btn{padding:11px 20px;font-size:12.5px;box-shadow:0 4px 0 var(--gold-deep)}
-.card-actions .text-link{font-weight:700;font-size:15px;text-decoration:none;border-bottom:2px solid var(--line);padding-bottom:1px;transition:border-color .18s}
-.card-actions .text-link:hover{border-color:var(--gold)}
-.card-actions .note{color:var(--muted);font-size:14.5px}
+.work{padding-block:96px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
+.section-head .label{margin-bottom:14px}
+.section-head p{margin:0;max-width:26em;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:64px 40px}
+.project{display:flex;flex-direction:column;gap:18px;min-width:0}
+.shot{display:block;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:#ECEBE6;border:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+a.shot:hover img{transform:scale(1.03)}
+.project-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px}
+.project h3{font-size:26px;line-height:1.15;letter-spacing:-.03em}
+.project .idx{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.project .cat{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:-8px 0 0}
+.project .cat .live{color:#3E9B62}
+.project p{margin:0;color:var(--soft)}
+.project-links{display:flex;gap:24px;font-size:15px;margin-top:auto}
+.project-links a{font-weight:600;text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;transition:border-color .2s,color .2s}
+.project-links a:hover{border-color:var(--accent);color:var(--accent)}
+.project-links .note{color:var(--muted)}
 
-/* Blog (navy) */
-.blog{background:var(--navy);color:var(--white);padding-block:30px 120px;position:relative}
-.blog .section-head > p{color:#A9B6CB}
-.blog .section-head .eyebrow{color:var(--gold)}
-.post{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--navy-2);border-radius:28px;overflow:hidden;text-decoration:none;border:1px solid rgba(255,255,255,.08);transition:transform .25s ease}
-.post:hover{transform:translateY(-4px)}
-.post-img{background:#0A3A66;display:grid;place-items:center;padding:34px}
-.post-img img{display:block;width:100%;height:auto;border-radius:10px;box-shadow:0 20px 40px rgba(0,0,0,.35)}
-.post-body{padding:48px 48px 44px;display:flex;flex-direction:column;gap:18px;justify-content:center}
-.post-body .meta .cat{color:var(--gold)}
-.post-body .meta span:last-child{color:#A9B6CB}
-.post-body h3{font-family:var(--display);font-stretch:112%;font-weight:900;text-transform:uppercase;font-size:clamp(24px,2.3vw,32px);line-height:1;margin:0}
-.post-body p{margin:0;color:#C9D3E3}
-.post-stats{display:flex;gap:28px;flex-wrap:wrap;padding-block:6px}
-.post-stats div{display:flex;flex-direction:column}
-.post-stats b{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:30px;color:var(--gold);line-height:1}
-.post-stats span{font-size:13px;color:#A9B6CB}
-.post .btn{align-self:flex-start}
+/* Writing */
+.writing{padding-block:96px}
+.posts{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.posts a{display:grid;grid-template-columns:140px minmax(0,1fr) 220px 32px;gap:28px;align-items:center;padding-block:28px;border-bottom:1px solid var(--line);text-decoration:none;transition:background .2s}
+.posts a:hover{background:var(--surface)}
+.posts .date{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.posts h3{font-size:clamp(20px,2vw,26px);line-height:1.25;letter-spacing:-.025em}
+.posts .post-sub{display:block;font-size:15px;color:var(--muted);margin-top:6px;font-weight:400;letter-spacing:0}
+.posts img{width:220px;aspect-ratio:16/9;object-fit:cover;border-radius:4px}
+.posts .go{font-size:22px;transition:transform .2s}
+.posts a:hover .go{transform:translateX(4px);color:var(--accent)}
 
-/* Connect */
-.connect{padding-block:110px 120px;text-align:center}
-.connect .eyebrow{color:var(--gold-deep)}
-.connect .display{font-size:clamp(52px,9vw,128px);margin-top:16px}
-.connect .display span{color:var(--gold-deep)}
-.connect p:not(.eyebrow){max-width:34em;margin:24px auto 36px;color:var(--muted);font-size:18px}
-.connect .ctas{justify-content:center}
-footer{background:var(--navy);color:#A9B6CB;font-size:14px}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-block:26px}
-footer a{text-decoration:none}
-footer a:hover{color:var(--gold)}
-footer nav{display:flex;gap:22px}
+/* Contact */
+.contact{padding-block:120px 96px}
+.contact h2{font-size:clamp(44px,7vw,92px);letter-spacing:-.05em;line-height:.98}
+.contact p:not(.label){color:var(--soft);font-size:18px;max-width:30em;margin:24px 0 32px}
+.contact-links{display:flex;flex-wrap:wrap;gap:12px}
+footer{border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-block:28px;font-size:14px;color:var(--muted)}
 
 /* Load-in */
-@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
-@keyframes spinIn{from{transform:translateX(-50%) rotate(-40deg) scale(.9)}to{transform:translateX(-50%) rotate(0) scale(1)}}
-.hero-copy > *{animation:rise .8s cubic-bezier(.2,.7,.2,1) both}
-.hero-copy > *:nth-child(2){animation-delay:.08s}
-.hero-copy > *:nth-child(3){animation-delay:.16s}
-.hero-copy > *:nth-child(4){animation-delay:.24s}
-.hero-copy > *:nth-child(5){animation-delay:.32s}
-.ball{animation:spinIn 1.1s cubic-bezier(.2,.7,.2,1) both}
-.player{animation:rise 1s .15s cubic-bezier(.2,.7,.2,1) both}
-.chip{animation:rise .8s .55s cubic-bezier(.2,.7,.2,1) both}
-.chip.past{animation-delay:.7s}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero-copy > *,.hero-photo{animation:fade .7s cubic-bezier(.2,.7,.2,1) both}
+.hero-copy > *:nth-child(2){animation-delay:.06s}
+.hero-copy > *:nth-child(3){animation-delay:.12s}
+.hero-copy > *:nth-child(4){animation-delay:.18s}
+.hero-photo{animation-delay:.1s}
 
-/* Responsive */
-@media (max-width:980px){
-  .hero .wrap{grid-template-columns:1fr;min-height:0}
-  .hero-copy{padding-block:10px}
-  .hero-art{min-height:560px}
-  .ball{bottom:170px;width:min(460px,90%)}
-  .chip.now{right:4%;top:40px}
-  .chip.past{left:2%;bottom:200px}
-  .about .wrap{grid-template-columns:1fr;gap:28px}
-  .path{grid-template-columns:1fr}
-  .arrow{justify-self:center;transform:rotate(90deg)}
-  .stat-row{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:34px}
-  .stat:nth-child(3){border-left:0;padding-left:0}
-  .section-head{grid-template-columns:1fr;gap:18px}
-  .section-head > p{justify-self:start}
+@media (max-width:900px){
+  .hero .wrap,.about .wrap{grid-template-columns:1fr;gap:48px}
+  .hero-photo{justify-self:start;max-width:300px}
+  .pair{position:static;max-width:440px}
+  .stat-row{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}
   .grid{grid-template-columns:1fr}
-  .post{grid-template-columns:1fr}
-  .post-body{padding:32px 28px 34px}
+  .posts a{grid-template-columns:minmax(0,1fr) 32px;gap:12px}
+  .posts .date{grid-column:1/-1}
+  .posts img{display:none}
 }
-@media (max-width:640px){
-  .wrap{padding-inline:18px}
-  .links a:not(.btn){display:none}
-  .mark b{display:none}
-  .hero-art{min-height:470px}
-  .ball{bottom:150px}
-  .chip{padding:10px 12px}
-  .chip strong{font-size:13px}
-  .chip small{font-size:12px}
-  .chip.past{bottom:140px}
-  .stop{flex-direction:column;align-items:flex-start;gap:14px}
-  .stat{padding:4px 16px}
-  .seam{height:56px;margin-top:-55px}
-  .seam.below{margin-top:-1px}
+@media (max-width:560px){
+  .wrap{padding-inline:20px}
+  .nav nav{gap:18px;font-size:14px}
+  .nav nav a:nth-child(1){display:none}
+  .brand span{display:none}
+  .hero{padding-block:40px 72px}
+  .timeline li{grid-template-columns:64px minmax(0,1fr);gap:8px 16px}
+  .timeline .when{grid-column:1/-1}
+  .timeline .place{grid-column:2;text-align:left}
 }
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
-}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
-<header class="nav" id="top">
+<header class="nav">
   <div class="wrap">
-    <a class="mark" href="#top"><i>QE</i><b>Quentin Evers</b></a>
-    <nav class="links" aria-label="Sections">
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#blog">Blog</a>
-      <a class="btn btn-navy" href="#connect">Connect</a>
-    </nav>
+    <a class="brand" href="#">Quentin Evers <span>/ Hitting</span></a>
+    <nav aria-label="Sections"><a href="#about">About</a><a href="#work">Work</a><a href="#writing">Writing</a><a href="#contact">Contact</a></nav>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow">Hitting Trainer / Driveline Baseball</p>
-      <h1 class="display"><span>Quentin</span><span class="outline">Evers</span></h1>
-      <p class="tagline">I help hitters understand what it takes to reach the next level, and I build <b>the tools that help coaches get them there.</b></p>
-      <div class="ctas">
-        <a class="btn btn-gold" href="#work">See my work <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-line" href="#blog">Read the blog</a>
-      </div>
-      <div class="socials">
-        <a href="https://www.linkedin.com/in/quentin-evers-943628442/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3v-11zm6.5 0h3.8v1.5h.05c.53-1 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.87v5.58h-4v-4.95c0-1.18-.02-2.7-1.65-2.7-1.65 0-1.9 1.29-1.9 2.62v5.03h-4v-11z"/></svg></a>
-        <a href="https://x.com/QuentinEvers" target="_blank" rel="noopener" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M17.75 3h3.07l-6.7 7.66L22 21h-6.17l-4.83-6.32L5.47 21H2.4l7.17-8.2L2 3h6.33l4.37 5.78L17.75 3zm-1.08 16.17h1.7L7.4 4.74H5.58l11.09 14.43z"/></svg></a>
-        <a href="https://github.com/qevers23" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></a>
+      <span class="status">Hitting Trainer at Driveline Baseball, Tampa FL</span>
+      <h1>Quentin Evers</h1>
+      <p class="intro">I help hitters understand what it takes to reach the next level, and I build <strong>the tools that help coaches get them there.</strong></p>
+      <div class="actions">
+        <a class="btn btn-solid" href="#work">See my work</a>
+        <a class="btn btn-ghost" href="#writing">Read the blog</a>
       </div>
     </div>
-
-    <div class="hero-art" aria-hidden="true">
-      <div class="ball">
-        <svg viewBox="0 0 200 200" fill="none" stroke="#C8202F" stroke-width="2.4" stroke-linecap="round">
-          <path d="M44 22 C78 60 78 140 44 178" stroke="rgba(255,255,255,.55)" stroke-width="1.6"/>
-          <path d="M156 22 C122 60 122 140 156 178" stroke="rgba(255,255,255,.55)" stroke-width="1.6"/>
-          <g id="st"><path d="M50 34l9-4M57 46l9-3M62 59l9-2M65 72l9-1M67 86l9 0M67 100l9 0M67 114l9 0M65 128l9 1M62 141l9 2M57 154l9 3M50 166l9 4"/></g>
-          <use href="#st" transform="translate(200 0) scale(-1 1)"/>
-        </svg>
-      </div>
-      <img class="player" src="img/quentin-cutout.webp" alt="" width="564" height="1080">
-      <div class="chip now"><span class="dot"></span><div><strong>Driveline Baseball</strong><small>Hitting Trainer, Tampa FL</small></div></div>
-      <div class="chip past"><span class="dot"></span><div><strong>Dakota State</strong><small>Hitting Coach, Madison SD</small></div></div>
-    </div>
+    <figure class="hero-photo">
+      <img src="portrait.jpg" alt="Quentin Evers on the field in a navy team jacket" width="720" height="900">
+      <figcaption><span>On the field at Dakota State</span></figcaption>
+    </figure>
   </div>
 </section>
 
-<svg class="seam" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 C360 0 1080 0 1440 90 Z" fill="#0C1E3C"/></svg>
-
 <section class="about" id="about">
   <div class="wrap">
-    <div>
-      <p class="eyebrow">About me</p>
-      <h2 class="display">Data made me a better player. <em>Now I coach with it.</em></h2>
+    <div class="pair">
+      <img src="img/headshot.jpg" alt="Quentin Evers headshot in a Dakota State cap" width="400" height="500" loading="lazy">
+      <img src="img/walking.jpg" alt="Quentin Evers walking the field during a game" width="320" height="400" loading="lazy">
     </div>
     <div class="about-text">
+      <p class="label">About</p>
+      <h2>Data made me a better player. <em>Now I coach with it.</em></h2>
       <p>I'm a hitting trainer at Driveline Baseball in Tampa, Florida. Before that, I was the hitting coach at Dakota State University in Madison, South Dakota.</p>
       <p>Most of my life is dedicated to furthering athletes' careers and helping them understand what they need to do to get to the next level. Early in my college career I was fortunate to have coaches who used data and technology to develop players. Those experiences are a big part of why I use the same resources in my own coaching.</p>
       <p>At Driveline I've had the chance to put my creativity to the test and build tools that help both players and coaches. This site is a home for everything I make and my thoughts on offensive development. It will keep changing as I keep improving in my career. Hopefully someone finds it useful, interesting, or both.</p>
-    </div>
-    <div class="path">
-      <div class="stop">
-        <div class="logo dsu"><img src="img/dsu.png" alt="Dakota State University Baseball" width="200" height="125"></div>
-        <div><span class="when">Previously</span><span class="org">Dakota State University</span><span class="role">Hitting Coach, Madison, SD</span></div>
-      </div>
-      <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
-      <div class="stop now">
-        <div class="logo dl"><img src="img/driveline.png" alt="Driveline Baseball" width="600" height="132"></div>
-        <div><span class="when">Now</span><span class="org">Driveline Baseball</span><span class="role">Hitting Trainer, Tampa, FL</span></div>
-      </div>
+      <ul class="timeline">
+        <li class="now"><span class="when">Now</span><span class="logo dl"><img src="img/driveline.png" alt="Driveline Baseball" width="600" height="132"></span><span><b>Driveline Baseball</b><span class="role">Hitting Trainer</span></span><span class="place">Tampa, FL</span></li>
+        <li><span class="when">Before</span><span class="logo dsu"><img src="img/dsu.png" alt="Dakota State University Baseball" width="200" height="125"></span><span><b>Dakota State University</b><span class="role">Hitting Coach</span></span><span class="place">Madison, SD</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -316,8 +218,8 @@ footer nav{display:flex;gap:22px}
 <section class="numbers">
   <div class="wrap">
     <div class="head">
-      <h2 class="display">Dakota State offense, 2024-25</h2>
-      <a href="posts/dsu-offensive-review-2024-25.html">Read the season review &rarr;</a>
+      <h2>Dakota State offense, 2024-25</h2>
+      <a class="arrow-link" href="posts/dsu-offensive-review-2024-25.html">Read the season review &rarr;</a>
     </div>
     <div class="stat-row">
       <div class="stat"><b>.300</b><span>Team batting average</span><small>.395 OBP / .498 SLG</small></div>
@@ -331,124 +233,87 @@ footer nav{display:flex;gap:22px}
 <section class="work" id="work">
   <div class="wrap">
     <div class="section-head">
-      <div><p class="eyebrow">Selected work</p><h2 class="display">Tools I've built</h2></div>
-      <p>Software for coaches and hitters: game-day tracking, teaching tools built on Statcast bat tracking, development reports and research. Click any screenshot to open the tool.</p>
+      <div><p class="label">Selected work</p><h2>Tools I've built</h2></div>
+      <p>Software for coaches and hitters: game-day tracking, teaching tools built on Statcast bat tracking, development reports and research.</p>
     </div>
-
     <div class="grid">
-      <article class="card">
-        <a class="shot" href="https://qevers23.github.io/hitter-tracker/" target="_blank" rel="noopener"><img src="tracker.jpg" alt="Hitting Tracker hitter page with slash line, zone profile and spray chart" width="1200" height="750" loading="lazy"><span class="num">01</span></a>
-        <div class="card-body">
-          <div class="meta"><span class="cat">Game day</span><span class="status live">Live</span></div>
-          <h3>Hitting Tracker</h3>
-          <p>Pitch-by-pitch tracking and swing-decision reports, built for the Mount Marty staff. A coach charts the game live and every hitter page, team page and export updates from the same shared data.</p>
-          <ul class="tags"><li>Zone profile</li><li>Decision runs</li><li>xwOBA</li><li>Spray chart</li></ul>
-          <div class="card-actions"><a class="btn btn-gold" href="https://qevers23.github.io/hitter-tracker/" target="_blank" rel="noopener">Open tool</a><a class="text-link" href="https://github.com/qevers23/hitter-tracker" target="_blank" rel="noopener">GitHub</a></div>
-        </div>
+      <article class="project">
+        <a class="shot" href="https://qevers23.github.io/hitter-tracker/" target="_blank" rel="noopener"><img src="tracker.jpg" alt="Hitting Tracker hitter page with slash line, zone profile and spray chart" width="1200" height="750" loading="lazy"></a>
+        <div class="project-head"><h3>Hitting Tracker</h3><span class="idx">01</span></div>
+        <p class="cat">Game day / <span class="live">Live</span></p>
+        <p>Pitch-by-pitch tracking and swing-decision reports, built for the Mount Marty staff. A coach charts the game live and every hitter page, team page and export updates from the same shared data.</p>
+        <div class="project-links"><a class="ext" href="https://qevers23.github.io/hitter-tracker/" target="_blank" rel="noopener">Open tool</a><a class="ext" href="https://github.com/qevers23/hitter-tracker" target="_blank" rel="noopener">GitHub</a></div>
       </article>
-
-      <article class="card">
-        <a class="shot" href="https://qevers23.github.io/Bat-Path-Explainer/" target="_blank" rel="noopener"><img src="batpath.jpg" alt="Bat Path Explainer with a tracked swing in three dimensions" width="1200" height="750" loading="lazy"><span class="num">02</span></a>
-        <div class="card-body">
-          <div class="meta"><span class="cat">Coach education</span><span class="status live">Live</span></div>
-          <h3>Bat Path Explainer</h3>
-          <p>An interactive walkthrough of the bat path for coaches: up or down, side to side, swinging fast and adjustability. Built on 330,422 tracked swings from the 2025 MLB regular season, with each swing rebuilt in 3D.</p>
-          <ul class="tags"><li>Attack angle</li><li>Swing tilt</li><li>Attack direction</li><li>Bat speed</li></ul>
-          <div class="card-actions"><a class="btn btn-gold" href="https://qevers23.github.io/Bat-Path-Explainer/" target="_blank" rel="noopener">Open tool</a><a class="text-link" href="https://github.com/qevers23/Bat-Path-Explainer" target="_blank" rel="noopener">GitHub</a></div>
-        </div>
+      <article class="project">
+        <a class="shot" href="https://qevers23.github.io/Bat-Path-Explainer/" target="_blank" rel="noopener"><img src="batpath.jpg" alt="Bat Path Explainer with a tracked swing in three dimensions" width="1200" height="750" loading="lazy"></a>
+        <div class="project-head"><h3>Bat Path Explainer</h3><span class="idx">02</span></div>
+        <p class="cat">Coach education / <span class="live">Live</span></p>
+        <p>An interactive walkthrough of the bat path for coaches: up or down, side to side, swinging fast and adjustability. Built on 330,422 tracked swings from the 2025 MLB regular season, with each swing rebuilt in 3D.</p>
+        <div class="project-links"><a class="ext" href="https://qevers23.github.io/Bat-Path-Explainer/" target="_blank" rel="noopener">Open tool</a><a class="ext" href="https://github.com/qevers23/Bat-Path-Explainer" target="_blank" rel="noopener">GitHub</a></div>
       </article>
-
-      <article class="card">
-        <a class="shot" href="https://qevers23.github.io/vaa-matcher/" target="_blank" rel="noopener"><img src="vaa.jpg" alt="VAA Matcher 3D view of attack angle against pitch VAA" width="1200" height="750" loading="lazy"><span class="num">03</span></a>
-        <div class="card-body">
-          <div class="meta"><span class="cat">Research</span><span class="status live">Live</span></div>
-          <h3>VAA Matcher</h3>
-          <p>Every 2025 MLB hitter's attack angle against the vertical approach angle of the pitches he sees. Plane mismatch explains why some hitters struggle with some pitch types, and the Plane Match Score rates it 0 to 100.</p>
-          <ul class="tags"><li>VAA</li><li>Attack angle</li><li>Plane match score</li><li>xwOBA</li></ul>
-          <div class="card-actions"><a class="btn btn-gold" href="https://qevers23.github.io/vaa-matcher/" target="_blank" rel="noopener">Open tool</a><span class="note">18 MB, best on desktop</span></div>
-        </div>
+      <article class="project">
+        <a class="shot" href="https://qevers23.github.io/vaa-matcher/" target="_blank" rel="noopener"><img src="vaa.jpg" alt="VAA Matcher 3D view of attack angle against pitch VAA" width="1200" height="750" loading="lazy"></a>
+        <div class="project-head"><h3>VAA Matcher</h3><span class="idx">03</span></div>
+        <p class="cat">Research / <span class="live">Live</span></p>
+        <p>Every 2025 MLB hitter's attack angle against the vertical approach angle of the pitches he sees. Plane mismatch explains why some hitters struggle with some pitch types, and the Plane Match Score rates it 0 to 100.</p>
+        <div class="project-links"><a class="ext" href="https://qevers23.github.io/vaa-matcher/" target="_blank" rel="noopener">Open tool</a><span class="note">18 MB, best on desktop</span></div>
       </article>
-
-      <article class="card">
-        <div class="shot"><img src="devreport.jpg" alt="Hitter Dev Report swing profile for an example athlete" width="1200" height="750" loading="lazy"><span class="num">04</span></div>
-        <div class="card-body">
-          <div class="meta"><span class="cat">Player development</span><span class="status">Single-file tool</span></div>
-          <h3>Hitter Dev Report</h3>
-          <p>Turns a hitter's Blast and HitTrax exports into one development report, compared against a chosen playing level, that prints as a PDF for the athlete. Drop in a program logo and the report takes on its colors.</p>
-          <ul class="tags"><li>Blast</li><li>HitTrax</li><li>On-plane efficiency</li><li>Contact depth</li></ul>
-          <div class="card-actions"><span class="note">Example athlete shown</span></div>
-        </div>
+      <article class="project">
+        <div class="shot"><img src="devreport.jpg" alt="Hitter Dev Report swing profile for an example athlete" width="1200" height="750" loading="lazy"></div>
+        <div class="project-head"><h3>Hitter Dev Report</h3><span class="idx">04</span></div>
+        <p class="cat">Player development / Single-file tool</p>
+        <p>Turns a hitter's Blast and HitTrax exports into one development report, compared against a chosen playing level, that prints as a PDF for the athlete. Drop in a program logo and the report takes on its colors.</p>
+        <div class="project-links"><span class="note">Example athlete shown</span></div>
       </article>
-
-      <article class="card">
-        <a class="shot" href="https://qevers23.github.io/bp-builder/" target="_blank" rel="noopener"><img src="bp.jpg" alt="BP Builder pre-game batting practice template" width="1200" height="750" loading="lazy"><span class="num">05</span></a>
-        <div class="card-body">
-          <div class="meta"><span class="cat">Practice planning</span><span class="status live">Live</span></div>
-          <h3>BP Builder</h3>
-          <p>A blank pre-game batting practice template a staff fills in: groups, rotation timing, cage rounds and on-field rounds. Plans save in the browser and print or export to PDF.</p>
-          <ul class="tags"><li>Groups</li><li>Cage rounds</li><li>Rotation timing</li></ul>
-          <div class="card-actions"><a class="btn btn-gold" href="https://qevers23.github.io/bp-builder/" target="_blank" rel="noopener">Open tool</a><a class="text-link" href="https://github.com/qevers23/bp-builder" target="_blank" rel="noopener">GitHub</a></div>
-        </div>
+      <article class="project">
+        <a class="shot" href="https://qevers23.github.io/bp-builder/" target="_blank" rel="noopener"><img src="bp.jpg" alt="BP Builder pre-game batting practice template" width="1200" height="750" loading="lazy"></a>
+        <div class="project-head"><h3>BP Builder</h3><span class="idx">05</span></div>
+        <p class="cat">Practice planning / <span class="live">Live</span></p>
+        <p>A blank pre-game batting practice template a staff fills in: groups, rotation timing, cage rounds and on-field rounds. Plans save in the browser and print or export to PDF.</p>
+        <div class="project-links"><a class="ext" href="https://qevers23.github.io/bp-builder/" target="_blank" rel="noopener">Open tool</a><a class="ext" href="https://github.com/qevers23/bp-builder" target="_blank" rel="noopener">GitHub</a></div>
       </article>
-
-      <article class="card">
-        <a class="shot" href="https://qevers23.github.io/weekly-hitting-builder/" target="_blank" rel="noopener"><img src="weekly.jpg" alt="Weekly Hitting Builder template" width="1200" height="750" loading="lazy"><span class="num">06</span></a>
-        <div class="card-body">
-          <div class="meta"><span class="cat">Practice planning</span><span class="status live">Live</span></div>
-          <h3>Weekly Hitting Builder</h3>
-          <p>A blank weekly hitting calendar. Each day gets a focus and a plan for every cage and the field, with machines, pitch shapes, drills and swing counts.</p>
-          <ul class="tags"><li>Weekly plan</li><li>Cage work</li><li>Drills and swings</li></ul>
-          <div class="card-actions"><a class="btn btn-gold" href="https://qevers23.github.io/weekly-hitting-builder/" target="_blank" rel="noopener">Open tool</a><a class="text-link" href="https://github.com/qevers23/weekly-hitting-builder" target="_blank" rel="noopener">GitHub</a></div>
-        </div>
+      <article class="project">
+        <a class="shot" href="https://qevers23.github.io/weekly-hitting-builder/" target="_blank" rel="noopener"><img src="weekly.jpg" alt="Weekly Hitting Builder template" width="1200" height="750" loading="lazy"></a>
+        <div class="project-head"><h3>Weekly Hitting Builder</h3><span class="idx">06</span></div>
+        <p class="cat">Practice planning / <span class="live">Live</span></p>
+        <p>A blank weekly hitting calendar. Each day gets a focus and a plan for every cage and the field, with machines, pitch shapes, drills and swing counts.</p>
+        <div class="project-links"><a class="ext" href="https://qevers23.github.io/weekly-hitting-builder/" target="_blank" rel="noopener">Open tool</a><a class="ext" href="https://github.com/qevers23/weekly-hitting-builder" target="_blank" rel="noopener">GitHub</a></div>
       </article>
     </div>
   </div>
 </section>
 
-<svg class="seam" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 90 C360 0 1080 0 1440 90 Z" fill="#0C1E3C"/></svg>
-<section class="blog" id="blog">
+<section class="writing" id="writing">
   <div class="wrap">
     <div class="section-head">
-      <div><p class="eyebrow">From the blog</p><h2 class="display">Thoughts on offense</h2></div>
+      <div><p class="label">Writing</p><h2>Thoughts on <em>offense</em></h2></div>
       <p>Write-ups on player development, the tools above, and what I'm learning along the way.</p>
     </div>
-    <a class="post" href="posts/dsu-offensive-review-2024-25.html">
-      <div class="post-img"><img src="img/spotlight-perry.png" alt="Aidan Perry player development spotlight graphic" width="400" height="225"></div>
-      <div class="post-body">
-        <div class="meta"><span class="cat">Dakota State</span><span>July 8, 2025</span></div>
-        <h3>2024-2025 DSU Offensive Player Development: A Year In Review</h3>
-        <p>How the Dakota State offense approached a season against 12 preseason Top 25 opponents: the offensive strategy, the fall and winter development process, and the results.</p>
-        <div class="post-stats"><div><b>.893</b><span>Team OPS</span></div><div><b>159</b><span>Extra-base hits</span></div><div><b>74</b><span>Stolen bases</span></div></div>
-        <span class="btn btn-gold">Read the post <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 12h15M13 6l6 6-6 6"/></svg></span>
-      </div>
-    </a>
+    <ul class="posts">
+      <li><a href="posts/dsu-offensive-review-2024-25.html">
+        <span class="date">Jul 8, 2025</span>
+        <h3>2024-2025 DSU Offensive Player Development: A Year In Review<span class="post-sub">Strategy, the fall and winter development process, and the results of a season against 12 preseason Top 25 opponents.</span></h3>
+        <img src="img/spotlight-perry.png" alt="" width="400" height="225" loading="lazy">
+        <span class="go" aria-hidden="true">&rarr;</span>
+      </a></li>
+    </ul>
   </div>
 </section>
-<svg class="seam below" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1440 C1080 90 360 90 0 0 Z" fill="#0C1E3C"/></svg>
 
-<section class="connect" id="connect">
+<section class="contact" id="contact">
   <div class="wrap">
-    <p class="eyebrow">Get in touch</p>
-    <h2 class="display">Let's talk <span>hitting.</span></h2>
+    <p class="label">Contact</p>
+    <h2>Let's talk <em>hitting.</em></h2>
     <p>Coaching, player development, or something you want built. Reach out on any of these.</p>
-    <div class="ctas">
-      <a class="btn btn-gold" href="https://www.linkedin.com/in/quentin-evers-943628442/" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="btn btn-line" href="https://x.com/QuentinEvers" target="_blank" rel="noopener">X / Twitter</a>
-      <a class="btn btn-line" href="https://github.com/qevers23" target="_blank" rel="noopener">GitHub</a>
+    <div class="contact-links">
+      <a class="btn btn-solid ext" href="https://www.linkedin.com/in/quentin-evers-943628442/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost ext" href="https://x.com/QuentinEvers" target="_blank" rel="noopener">X / Twitter</a>
+      <a class="btn btn-ghost ext" href="https://github.com/qevers23" target="_blank" rel="noopener">GitHub</a>
     </div>
   </div>
 </section>
 
-<footer>
-  <div class="wrap">
-    <span>&copy; 2026 Quentin Evers</span>
-    <nav aria-label="Profiles"><a href="https://www.linkedin.com/in/quentin-evers-943628442/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/QuentinEvers" target="_blank" rel="noopener">X / Twitter</a><a href="https://github.com/qevers23" target="_blank" rel="noopener">GitHub</a></nav>
-  </div>
-</footer>
+<footer><div class="wrap"><span>&copy; 2026 Quentin Evers</span><span>Tampa, Florida</span></div></footer>
 
-<script>
-const nav=document.querySelector('.nav');
-addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});
-</script>
 </body>
 </html>
