@@ -68,7 +68,12 @@ h3{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size
 .links a:hover{color:var(--accent)}
 .links .note{font-weight:400;color:var(--muted);font-size:14px}
 
-footer{margin-top:72px;border-top:2px solid var(--ink);padding-block:20px 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
+.writing{padding-block:56px 0;border-top:1px solid var(--line);margin-top:48px}
+.writing .work-head{margin-bottom:24px}
+.empty{border:1.5px dashed var(--line);border-radius:4px;padding:40px 28px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.empty strong{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:26px;letter-spacing:.01em}
+.empty span{color:var(--muted);font-size:15px}
+footer{margin-top:80px;border-top:2px solid var(--ink);padding-block:20px 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:12.5px;color:var(--muted)}
 footer nav{display:flex;gap:20px}
 footer a{text-decoration:none}
 footer a:hover{color:var(--accent)}
@@ -166,6 +171,17 @@ footer a:hover{color:var(--accent)}
 
     </div>
   </main>
+
+  <section class="writing" id="blog">
+    <div class="work-head">
+      <h2>Blog</h2>
+      <p>Thoughts on offensive development.</p>
+    </div>
+    <div class="empty">
+      <strong>First post coming soon</strong>
+      <span>Write-ups on the tools above and on hitting development will live here.</span>
+    </div>
+  </section>
 
   <footer>
     <span>Quentin Evers</span>
