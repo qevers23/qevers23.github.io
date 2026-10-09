@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2024-2025 DSU Offensive Player Development: A Year In Review - Quentin Evers</title>
+<meta name="description" content="How the Dakota State offense approached player development in 2024-25: strategy, fall, winter, and results.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column (~68ch), with stat grid, table and spotlight grid allowed to run a little wider. */
+:root{
+  --ground:#F2F3EF; --panel:#FFFFFF; --ink:#14212C; --muted:#5C6872;
+  --line:#D9DDD7; --accent:#A9481F; --chip:#E7EAE4;
+  --display:"Big Shoulders Display",Impact,"Arial Narrow",sans-serif;
+  --body:"Public Sans",-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#0E141A; --panel:#151D25; --ink:#E7EBEC; --muted:#98A4AC;
+    --line:#26323C; --accent:#E2774B; --chip:#1D2731; color-scheme:dark;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17.5px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;padding-inline:24px}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.top{max-width:1120px;margin:0 auto;padding-block:24px;display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-family:var(--mono);font-size:13px;border-bottom:1px solid var(--line)}
+.top a{text-decoration:none}
+.top a:hover{color:var(--accent)}
+.top .home{font-family:var(--display);font-weight:800;font-size:22px;text-transform:uppercase;letter-spacing:.01em}
+
+article{max-width:720px;margin:0 auto;padding-block:56px 40px}
+.kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 16px}
+h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(40px,6.4vw,68px);line-height:.92;margin:0 0 24px;text-wrap:balance}
+.byline{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:13px;color:var(--muted);padding-bottom:28px;border-bottom:2px solid var(--ink);margin-bottom:36px}
+.byline a{color:var(--muted)}
+.byline a:hover{color:var(--accent)}
+h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:34px;line-height:1;margin:56px 0 18px;letter-spacing:.01em}
+article p{margin:0 0 20px}
+.wide{margin-block:32px}
+@media (min-width:900px){ .wide{margin-inline:-90px} }
+
+ol.cats{margin:0 0 24px;padding-left:1.4em;display:grid;gap:4px}
+ol.cats li::marker{font-family:var(--mono);color:var(--accent)}
+
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.stat{background:var(--panel);padding:16px 18px;display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--display);font-weight:800;font-size:38px;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:13.5px;font-weight:600}
+.stat small{font-family:var(--mono);font-size:11.5px;color:var(--accent);line-height:1.4}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:4px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;min-width:600px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-family:var(--mono);font-weight:500;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--mono);font-size:13.5px}
+tr:last-child td{border-bottom:0}
+caption{caption-side:bottom;text-align:left;padding:10px 14px;font-family:var(--mono);font-size:12px;color:var(--muted);border-top:1px solid var(--line)}
+
+ul.pros{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:10px}
+ul.pros li{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:16px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+ul.pros b{font-weight:600}
+ul.pros span{color:var(--muted)}
+
+.spotlights{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.spotlights figure{margin:0}
+.spotlights img{display:block;width:100%;height:auto;border-radius:3px;max-width:100%}
+.spotlights figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+.signoff{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:30px;margin-top:32px}
+.back{max-width:720px;margin:0 auto;padding-block:24px 64px;border-top:2px solid var(--ink);font-family:var(--mono);font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.back a{text-decoration:none}
+.back a:hover{color:var(--accent)}
+
+@media (max-width:600px){
+  body{padding-inline:16px;font-size:17px}
+  .spotlights{grid-template-columns:1fr}
+  .stat{padding:12px}
+  .stat b{font-size:28px}
+  ul.pros li{grid-template-columns:1fr;gap:2px}
+}
+</style>
+</head>
+<body>
+
+<nav class="top"><a class="home" href="../">Quentin Evers</a><a href="../#blog">All posts</a></nav>
+
+<article>
+  <p class="kicker">Dakota State Baseball / Offensive player development</p>
+  <h1>2024-2025 DSU Offensive Player Development: A Year In Review</h1>
+  <div class="byline"><span>Quentin Evers</span><span>July 8, 2025</span><span>Originally posted on <a href="https://qevers23.blogspot.com/2025/07/2024-2025-dsu-offensive-player.html" target="_blank" rel="noopener">Blogger</a></span></div>
+
+  <p>The 2024-2025 baseball season was one riddled with adversity for the DSU offensive staff. Coming off a year where it lost the top 2 hitters in program history as well as 3 other offensive weapons who posted over .300 batting averages in the 2023-2024 season, the group knew they had their work cut out for them. On top of that, the season ahead provided one of the toughest schedules in program history.</p>
+  <p>From fall baseball up to first pitch in February, the offense at DSU was preparing to face a schedule that included 12 teams ranked in the NAIA pre-season Top 25. Overall, 26 of 50 (52% of the total schedule) scheduled opponents fell under one of the categories listed below:</p>
+  <ol class="cats">
+    <li>Top 25</li>
+    <li>Receiving Votes (RV) to be nationally ranked</li>
+    <li>National Tournament Qualifier</li>
+    <li>Area Ranking Committee (ARC/regionally ranked)</li>
+    <li>Played in a Conference Tournament Championship Game</li>
+    <li>30+ wins</li>
+  </ol>
+  <p>Adding to the challenge, were several unfortunate or "freak" injuries that kept multiple starting caliber athletes out of the everyday lineup requiring others within the organization to step up and fill roles.</p>
+  <p>Regardless, the offense at DSU was able to persevere and add to the track record of offensive success that has been had over the last few years while competing against the best of the best. Here are a few offensive highlights from this past season:</p>
+
+  <div class="stats wide">
+    <div class="stat"><b>.300</b><span>Team batting average</span></div>
+    <div class="stat"><b>.395</b><span>OBP</span></div>
+    <div class="stat"><b>.498</b><span>SLG</span></div>
+    <div class="stat"><b>.893</b><span>OPS</span></div>
+    <div class="stat"><b>465</b><span>Hits</span></div>
+    <div class="stat"><b>159</b><span>Extra-base hits</span><small>2nd NSAA</small></div>
+    <div class="stat"><b>74</b><span>Home runs</span><small>24th in the NAIA</small></div>
+    <div class="stat"><b>331</b><span>RBI</span><small>2nd in program history</small></div>
+    <div class="stat"><b>74</b><span>Stolen bases</span><small>Tied 2nd in program history</small></div>
+  </div>
+
+  <p>On top of this, the year brought about several standout individual seasons:</p>
+  <div class="table-wrap wide">
+    <table>
+      <thead><tr><th>Player</th><th>Pos</th><th>Honor</th><th class="num">AVG/OBP/SLG</th><th class="num">HR</th><th class="num">2B</th><th class="num">3B</th><th class="num">RBI</th></tr></thead>
+      <tbody>
+        <tr><td>Cassidy Watt</td><td>C</td><td>1st Team All-Conference</td><td class="num">.331/.405/.635</td><td class="num">14</td><td class="num">12</td><td class="num">-</td><td class="num">50</td></tr>
+        <tr><td>Cameron DeMaria</td><td>1B/DH</td><td>2nd Team All-Conference</td><td class="num">.344/.440/.733</td><td class="num">14</td><td class="num">9</td><td class="num">-</td><td class="num">40</td></tr>
+        <tr><td>Aidan Perry</td><td>2B</td><td>2nd Team All-Conference</td><td class="num">.350/.483/.485</td><td class="num">5</td><td class="num">7</td><td class="num">-</td><td class="num">26</td></tr>
+        <tr><td>Hunter Vikemyr</td><td>OF</td><td>Honorable Mention All-Conference</td><td class="num">.329/.416/.463</td><td class="num">4</td><td class="num">8</td><td class="num">1</td><td class="num">31</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Lastly, the previous two teams at Dakota State have been able to continue the trend of Trojans in the ranks of professional baseball.</p>
+  <ul class="pros">
+    <li><b>Bubba Thompson, SS</b><span>Boise Hawks (Frontier League), Birmingham Bloomfield Beavers (USPBL)</span></li>
+    <li><b>Walker Hultgren, OF</b><span>Sioux Falls Canaries (American Association)</span></li>
+    <li><b>Cassidy Watt, C</b><span>Brantford Red Sox (IBL)</span></li>
+    <li><b>Darcy Barry, SS</b><span>Australian Baseball League</span></li>
+  </ul>
+
+  <h2>DSU Baseball Offensive Strategy</h2>
+  <p>Before any discussion regarding development can take place it is important that we establish a clear and concise offensive strategy that is the foundation of everything that we do. At DSU our offensive strategy is centered around swinging with the intent to do damage with the goal of producing as many extra base hits as possible. Obviously, much more will go into this, however, in the spirit of getting college baseball players to buy in, this is where we start.</p>
+  <p>The more in depth definition, however, is centered around training in a way that covers what Driveline has coined "The Big 3" of offensive development: bat speed, bat to ball, and swing decisions. The goal of every game is to score more runs than your opponent and becoming elite in these three areas allows for this goal to be met on a more consistent basis. Along with this we emphasize rhythm and timing to allow for our athletes to better execute when needed. Our approach is geared towards blending development and execution creating a dynamic offense that can adapt to any situation that the game requires. We will touch more on each of these components throughout the entirety of the article, but this is a general introduction to some of the different values we have here at DSU.</p>
+
+  <h2>Fall 2024</h2>
+  <p>As previously mentioned, the goal is to always be as clear and concise as possible when it comes to offensive development. This began immediately as our offense met on Day 1 to discuss a number of different topics ranging from expectations/offensive identity to Blast Motion terminology. The goal here was to begin the implementation of the learning process as early as possible with each athlete at DSU. This was followed by each individual going through a baseline testing process in which initial swing data (via Blast Motion) and ball flight metrics (via Rapsodo) were collected. Each of our athletes then met one on one with coaches to break down their initial video and numbers. This can be an overwhelming time and it is important to note that the goal was not to have each of our athletes leave the room feeling great about their swing. The intent behind this, again, was to continue to kick start the learning process and shift players away from unconscious incompetence ("You don't know what you don't know") towards conscious incompetence. Here each individual began to understand what they do not know and ideally they are intrinsically motivated to chase their own development. Ultimately, we wanted to foster an environment where critical thinking was encouraged and everyone began to recognize that the majority had spent time doing what they have been told instead of creating and owning their own swing and process.</p>
+  <p>Once those meetings occurred, the 8 week fall period for Dakota State Baseball officially began. It is a unique blend of individual and team development. During this period of time individual development was centered more around the previously mentioned "Big 3". Each practice our hitters were split into positional groups and put through a rigorous hour of hitting centered around training one of these three areas of focus. Variation is key during this time to fight monotony and extremely high levels of communication and organization were utilized all in the spirit of reducing questions and allowing for the learning process to continue. Overlayed on top of the cage specific work was a daily on field batting practice session in which data and video were collected. Blast Motion and Rapsodo were heavily implemented during this period of time as we tried to collect as much data as possible to allow for a complete understanding of each individual's swing. Along with this, numerous camera angles were used to take video which was then uploaded onto a personal shared Google Drive where our athletes can access and breakdown video. As the fall progressed development narrowed in certain areas for certain individuals as patterns in swing deficits began to appear. Collectively, the individual portion of offensive fall development went from a broad general scope to narrow and personalized. As it came to a close, coaches and players alike had a strong understanding of who each hitter was as well as their strengths and weaknesses.</p>
+  <p>Looking at the fall from a team based lens, however, provides a different view of development. Along with daily practice our fall consists of scrimmage dates three days a week. This is a period of time where hitters can "test-drive" the different adjustments that they have made. Along similar lines they are also introduced more in depth to in game offensive strategy and expectations regarding how they hit within a lineup. From a coaching perspective these scrimmages provided a wealth of information and data to collect. Here at DSU execution is something that we value heavily and we believe it can be developed. From the first scrimmage to the last we are able to track what we call "Hitting For Us". Essentially, these are moments in the game where a runner is on 2nd base with nobody out or a runner is on 3rd with less than two outs and execution occurs when those runners are moved over or score. Our goal here is 75% execution. We also track each athlete's ability to compete within at bats and be tough outs. Our criteria here consists of seeing 6 plus pitches in an at bat, balls in play, seeing multiple pitches in two strikes, etc. Tracking both Tough Outs and Hitting For Us opportunities allowed for the coaching staff to get a great feel for who could be trusted to execute when necessary. Finally, during this period of time each pitch an individual saw was tracked to allow them to better understand how our pitching staff wanted to get them out. From this, hitters were able to look for patterns and potentially build their approach to cater towards the way they are consistently being pitched.</p>
+  <p>Overall, fall baseball at Dakota State is a labor of love that delicately balances development and competition in a way that we believe best sets up our athletes for success. By the end of this 8 week period, coaches and players alike have a clear picture of individual strengths, weaknesses, and tendencies.</p>
+
+  <h2>Winter 2024</h2>
+  <p>Winter at DSU is a favorite for players and coaches alike. Here, player development is pushed even further into the forefront. As has been discussed, an integral part of the fall is data collection and even though that data does get used throughout the fall this time is where it becomes extremely important. The week following our DSU Fall World Series consists of in depth meetings between athletes and the coaching staff to develop individualized plans that are meant to attack the deficits that have shown up during the first 8 weeks of the semester. This is a collaborative process during which the athletes are able to continue to show the ownership that they have taken in their swing. Our athletes walk away from these meetings, once again, with a clear and concise understanding of what the next steps of their development will be.</p>
+  <p>Simply put, the winter is 4 sets of two week training periods divided by re-test days that allow for progress to be tracked. Each day during this time, hitters utilize their 1 hour time slot to come in and execute their plans. During these hour time slots a coach is present to answer questions and walk alongside our athletes. Following a re-test, metrics will be checked to see if the plan is having its intended effect. If it is, great! We will keep on doing what we are doing. If things haven't trended in the right direction, we will go back to the drawing board, using all of our resources, to continue and search for what will get the athlete back on the right track.</p>
+  <p>Essentially, this test and re-test process is similar to a doctor prescribing medicine. One athlete may lack bat speed and need to utilize overspeed training in the form of Driveline's overload and underload bats or through throwing medicine balls. Another's bat path may be inefficient and they might need to utilize a paddle bat or a more specified swing adjustment such as using a split grip or starting from their shoulder. A needs based approach allows for each athlete to get what is required on an individual basis while avoiding a cookie cutter one size fits all approach to offensive development.</p>
+  <p>Now, everything listed above falls under what would be classified as internal work. These are things like swing mechanics, movement patterns, and how the bat gets from Point A to Point B in the most efficient method. Although necessary for learning in our game, the best offensive players have the ability to transfer all of their internal work into an external setting. Here at DSU, we try to expedite this process in the winter by blending in competition days throughout this phase to mimic an in game setting as closely as we can. We utilize Rapsodo to chase ball flight goals and Blast Motion to see if the swing improvements made during the internal days translate over to a more external setting. This provides an opportunity to make adjustments and or bridge the gap between internal and external before it is potentially too late in the spring season. An example of a day like this would be something as simple as playing the game HORSE using the Rapsodo. A hitter steps into the cage, calls his shot to an area of the field and if he executes every other hitter in the group has to go to that same area. As simple as it sounds, a game like this forces a hitter out of the mechanics of his swing and instead turns him towards an external goal in a competitive setting.</p>
+  <p>This period of the year is also highlighted by an uptick in strength training moving from 3 days a week to 4 days a week. (In the spirit of staying in my own lane I will not touch much on this. However, Coach Max deserves a ton of credit for the work he does with our guys. Much of our offensive success is due to their strength and mobility gains throughout the year.)</p>
+  <p>Finally, a common theme around this program is that player development is an inherently easy thing to talk about. It is another thing entirely to display progress with concrete evidence to support the strides that have been made. Listed below are graphics that show some of our "top developers" from this past winter period.</p>
+
+  <div class="spotlights wide">
+    <figure><img src="../img/spotlight-vikemyr.png" alt="Hunter Vikemyr player development spotlight" width="400" height="225"><figcaption>Hunter Vikemyr. Plane 38 to 58, Connection 40 to 68, Rotation 51 to 51.</figcaption></figure>
+    <figure><img src="../img/spotlight-demaria.png" alt="Cameron DeMaria player development spotlight" width="400" height="225"><figcaption>Cameron DeMaria. Plane 35 to 49, Connection 45 to 53, Rotation 48 to 49.</figcaption></figure>
+    <figure><img src="../img/spotlight-denboer.png" alt="Hunter Den Boer player development spotlight" width="400" height="225"><figcaption>Hunter Den Boer. Plane 42 to 52, Connection 47 to 62, Rotation 38 to 60.</figcaption></figure>
+    <figure><img src="../img/spotlight-perry.png" alt="Aidan Perry player development spotlight" width="400" height="225"><figcaption>Aidan Perry. Plane 53 to 71, Connection 42 to 57, Rotation 50 to 57.</figcaption></figure>
+  </div>
+  <p>Pre-fall offensive testing compared with the individual development week 4 re-test (Blast Motion Plane, Connection and Rotation scores).</p>
+
+  <p>Of the 4 athletes listed 3 of them went on to have All-Conference years in the spring. The fourth was a freshman who redshirted and looks to push to make the jump into the Trojan lineup in 2026. Overall, there is no overstating how important of a time the winter is here at DSU. Our athletes have bought in to a meticulous and intense process and all of them (not just the four listed above) deserve a vast amount of credit for the sweat equity that they put into this past school year.</p>
+
+  <h2>Conclusion</h2>
+  <p>So, what is the point of all of this? First and foremost, the goal here is to celebrate our players and the work that they have put in over the last year. I specifically mentioned a couple standouts throughout this article, but I can not stress enough how thankful I am for the entire group that we had this previous season. Across the board every single one of our guys did a phenomenal job owning their process and buying into the things that we wanted to accomplish. Through all the injuries and adversity they continuously showed up and strived to be the best version of themselves. At the end of the day that is all that I can ask for as a coach. To any current or former Trojans reading this I hope you guys are proud of the resiliency and drive you displayed this year.</p>
+  <p>This article also serves as a reminder that our process isn't perfect. As I have been putting this together the past couple of weeks I have been constantly reassessing and critiquing the way that I personally go about creating systems designed to better our athletes. One certainty in development is that it takes time. Not just for players, but for coaches as well. Time, to enhance protocols, better understand the learning process, and to know how to better adapt development for each individual player. A conversation I consistently have with freshmen in our program centers around the idea that where they are currently in their careers is the worst they will ever be as a baseball player. The same can be said for myself as a coach. Creating this article forces me to fire with that statement as next year's process/final product should be better than the last. Ultimately, the self reflection here reinforces my drive and desire to be better for our athletes.</p>
+  <p>Finally, this article serves as a bookend to a chapter in Dakota State Baseball. Moving forward the skeleton of the development process will look similar to what has been written here. The guarantee I can provide to any current and future Trojans, however, is that we will always be tweaking and tuning different aspects to provide our athletes with every tool they need to be great not only in baseball, but in life. The future of the DSU baseball program is bright. Next year will provide a strong returning core and hungry new faces who are itching to make an impact. Everyone involved in this process will be better than they were and we are all excited to get things rolling once again.</p>
+  <p class="signoff">Stay tuned.</p>
+</article>
+
+<div class="back"><a href="../#blog">&larr; All posts</a><a href="../">Quentin Evers</a></div>
+
+</body>
+</html>

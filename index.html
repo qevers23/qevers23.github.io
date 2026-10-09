@@ -45,8 +45,35 @@ h1{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size
 .portrait{margin:0;aspect-ratio:4/5;max-width:100%;overflow:hidden;background:var(--panel)}
 .portrait img{display:block;width:100%;height:100%;object-fit:cover}
 
+/* Career */
+.career{padding-block:40px 8px}
+.career-head{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 18px}
+.stops{display:grid;grid-template-columns:minmax(0,1fr) 56px minmax(0,1fr);align-items:stretch}
+.stop{display:grid;grid-template-columns:112px minmax(0,1fr);gap:20px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:20px}
+.stop.now{border-color:var(--ink)}
+.logo{height:72px;display:flex;align-items:center;justify-content:center;border-radius:3px;overflow:hidden}
+.logo img{display:block;max-width:100%;max-height:100%}
+.logo.dsu{background:#06173A}
+.logo.dl{background:#FFFFFF;border:1px solid var(--line);padding:10px}
+.stop-text{display:flex;flex-direction:column;gap:2px;min-width:0}
+.when{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.stop.now .when{color:var(--accent)}
+.org{font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:26px;line-height:1.05}
+.role{font-size:14.5px;color:var(--muted)}
+.arrow{display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.arrow svg{width:28px;height:28px}
+
+/* Blog */
+.post{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:36px;align-items:center;text-decoration:none;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:20px;transition:border-color .15s}
+.post:hover{border-color:var(--ink)}
+.post img{display:block;width:100%;height:auto;border-radius:3px}
+.post-body{display:flex;flex-direction:column;gap:12px;min-width:0}
+.post-body p{margin:0;color:var(--muted);font-size:15.5px}
+.post-body .read{font-size:14px;font-weight:600;color:var(--ink);border-bottom:2px solid var(--accent);align-self:flex-start;padding-bottom:1px}
+.post:hover .read{color:var(--accent)}
+
 /* Work */
-.work{padding-block:56px 24px}
+.work{padding-block:48px 24px}
 .work-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:32px}
 h2{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(36px,4.5vw,52px);line-height:1;margin:0}
 .work-head p{margin:0;color:var(--muted);font-size:15px}
@@ -82,8 +109,11 @@ footer a:hover{color:var(--accent)}
   .hero{grid-template-columns:1fr;gap:32px;padding-top:40px}
   .portrait{max-width:280px;order:-1}
   .grid{grid-template-columns:1fr;gap:56px}
+  .stops{grid-template-columns:1fr}
+  .arrow{height:40px;transform:rotate(90deg)}
+  .post{grid-template-columns:1fr;gap:20px}
 }
-@media (max-width:480px){ body{padding-inline:16px} }
+@media (max-width:480px){ body{padding-inline:16px} .stop{grid-template-columns:88px minmax(0,1fr);gap:14px;padding:16px} .logo{height:60px} }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important} }
 </style>
 </head>
@@ -106,6 +136,21 @@ footer a:hover{color:var(--accent)}
     </div>
     <figure class="portrait"><img src="portrait.jpg" alt="Quentin Evers on the field in a navy team jacket and batting helmet" width="720" height="900"></figure>
   </header>
+
+  <section class="career" aria-label="Experience">
+    <p class="career-head">Experience</p>
+    <div class="stops">
+      <div class="stop">
+        <div class="logo dsu"><img src="img/dsu.png" alt="Dakota State University Baseball" width="200" height="125"></div>
+        <div class="stop-text"><span class="when">Previously</span><span class="org">Dakota State University</span><span class="role">Hitting Coach, Madison, SD</span></div>
+      </div>
+      <div class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
+      <div class="stop now">
+        <div class="logo dl"><img src="img/driveline.png" alt="Driveline Baseball" width="600" height="132"></div>
+        <div class="stop-text"><span class="when">Now</span><span class="org">Driveline Baseball</span><span class="role">Hitting Trainer, Tampa, FL</span></div>
+      </div>
+    </div>
+  </section>
 
   <main class="work">
     <div class="work-head">
@@ -177,10 +222,15 @@ footer a:hover{color:var(--accent)}
       <h2>Blog</h2>
       <p>Thoughts on offensive development.</p>
     </div>
-    <div class="empty">
-      <strong>First post coming soon</strong>
-      <span>Write-ups on the tools above and on hitting development will live here.</span>
-    </div>
+    <a class="post" href="posts/dsu-offensive-review-2024-25.html">
+      <img src="img/spotlight-perry.png" alt="Aidan Perry player development spotlight graphic" width="400" height="225" loading="lazy">
+      <div class="post-body">
+        <div class="meta"><span class="cat">Dakota State</span><span class="status">July 8, 2025</span></div>
+        <h3>2024-2025 DSU Offensive Player Development: A Year In Review</h3>
+        <p>How the Dakota State offense approached a season against 12 preseason Top 25 opponents: the offensive strategy, the fall and winter development process, and the results.</p>
+        <span class="read">Read the post</span>
+      </div>
+    </a>
   </section>
 
   <footer>
